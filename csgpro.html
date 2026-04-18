@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>CSG PRO — Chad Jordan · Studio</title>
+<meta name="description" content="CSG PRO — A 7-layer AI visual direction system for creative directors who want repeatable, intentional image generation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.csg-hero{padding:10rem 3rem 6rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;}
+.csg-hero-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;}
+.csg-hero-label::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+.csg-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.5rem);font-weight:400;line-height:1.08;color:var(--white);}
+.csg-hero h1 em{font-style:italic;color:var(--gold);}
+.csg-hero-right{border-left:0.5px solid var(--gold-rule);padding-left:5rem;}
+.csg-hero-body{font-size:15px;line-height:1.9;color:var(--white-dim);margin-bottom:1.5rem;}
+.csg-hero-body strong{color:var(--white);font-weight:400;}
+.csg-hero-meta{display:flex;gap:0;border-top:0.5px solid var(--gold-rule);padding-top:1.5rem;margin-top:2.5rem;}
+.csg-meta-item{display:flex;flex-direction:column;gap:0.3rem;padding-right:2rem;margin-right:2rem;border-right:0.5px solid var(--gold-rule);}
+.csg-meta-item:last-child{border-right:none;}
+.csg-meta-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.45);}
+.csg-meta-value{font-size:13px;color:var(--white-dim);}
+
+/* WHY SECTION */
+.csg-why{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:5rem;align-items:start;}
+.csg-why-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:flex-start;padding-top:0.4rem;}
+.csg-why-content h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.2vw,2rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;font-style:italic;}
+.csg-why-content h2 em{color:var(--gold);}
+.csg-why-content p{font-size:15px;line-height:1.9;color:var(--white-dim);margin-bottom:1.25rem;}
+.csg-why-content p strong{color:var(--white);font-weight:400;}
+
+/* 7 LAYERS */
+.csg-layers{padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);background:var(--navy-mid);}
+.csg-layers-header{display:flex;align-items:center;gap:1rem;margin-bottom:4rem;}
+.csg-layers-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.csg-layers-rule{flex:1;height:0.5px;background:var(--gold-rule);}
+.csg-layer-grid{display:grid;grid-template-columns:repeat(7,1fr);border:0.5px solid var(--gold-rule);border-left:0.5px solid var(--gold-rule);}
+.csg-layer{border-right:0.5px solid var(--gold-rule);padding:2.5rem 1.75rem;}
+.csg-layer:last-child{border-right:none;}
+.csg-layer-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:1rem;}
+.csg-layer-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:400;color:var(--white);line-height:1.25;margin-bottom:0.85rem;font-style:italic;}
+.csg-layer-desc{font-size:12px;line-height:1.7;color:var(--white-dim);}
+
+/* HOW IT WORKS */
+.csg-how{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);}
+.csg-how-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.csg-how-label::after{content:'';flex:1;height:0.5px;background:var(--gold-rule);}
+.csg-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--gold-rule);}
+.csg-how-item{padding:2.5rem;border-right:0.5px solid var(--gold-rule);}
+.csg-how-item:last-child{border-right:none;}
+.csg-how-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.75rem;}
+.csg-how-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:0.75rem;}
+.csg-how-body{font-size:13px;line-height:1.75;color:var(--white-dim);}
+
+/* WHO IT'S FOR */
+.csg-for{padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);background:var(--navy-mid);display:grid;grid-template-columns:220px 1fr;gap:5rem;align-items:start;}
+.csg-for-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:flex-start;padding-top:0.4rem;}
+.csg-for-list{display:flex;flex-direction:column;gap:0;}
+.csg-for-item{display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--gold-rule);}
+.csg-for-item:first-child{padding-top:0;}
+.csg-for-item:last-child{border-bottom:none;padding-bottom:0;}
+.csg-for-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);margin-top:0.55rem;flex-shrink:0;}
+.csg-for-text{font-size:15px;line-height:1.7;color:var(--white-dim);}
+.csg-for-text strong{color:var(--white);font-weight:400;}
+
+/* CTA */
+.csg-cta{padding:7rem 3rem;border-bottom:0.5px solid var(--gold-rule);text-align:center;}
+.csg-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:1.5rem;}
+.csg-cta h2 em{font-style:italic;color:var(--gold);}
+.csg-cta p{font-size:15px;line-height:1.85;color:var(--white-dim);max-width:560px;margin:0 auto 3rem;}
+.csg-cta-btn{display:inline-flex;align-items:center;gap:1rem;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);background:var(--gold);text-decoration:none;padding:1.1rem 2.5rem;transition:background 0.25s,color 0.25s;}
+.csg-cta-btn:hover{background:var(--white);color:var(--navy);}
+.csg-cta-sub{margin-top:1.5rem;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;color:rgba(201,169,110,0.35);}
+
+@media(max-width:900px){
+  .csg-hero{grid-template-columns:1fr;gap:3rem;padding:8rem 1.5rem 4rem;}
+  .csg-hero-right{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2.5rem;}
+  .csg-hero-meta{flex-wrap:wrap;gap:1.5rem;}
+  .csg-why{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem;}
+  .csg-why-label{border-right:none;padding-right:0;align-self:auto;}
+  .csg-layers{padding:4rem 1.5rem;}
+  .csg-layer-grid{grid-template-columns:1fr 1fr;}
+  .csg-layer{border-bottom:0.5px solid var(--gold-rule);}
+  .csg-layer:nth-child(2n){border-right:none;}
+  .csg-layer:nth-last-child(-n+2){border-bottom:none;}
+  .csg-how{padding:4rem 1.5rem;}
+  .csg-how-grid{grid-template-columns:1fr;}
+  .csg-how-item{border-right:none;border-bottom:0.5px solid var(--gold-rule);}
+  .csg-how-item:last-child{border-bottom:none;}
+  .csg-for{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem;}
+  .csg-for-label{border-right:none;padding-right:0;align-self:auto;}
+  .csg-cta{padding:5rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://csgpro.app" target="_blank" style="color:var(--gold);">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="csg-hero reveal">
+  <div>
+    <div class="csg-hero-label">CSG PRO</div>
+    <h1>AI image generation<br>was never the<br><em>hard part.</em></h1>
+  </div>
+  <div class="csg-hero-right">
+    <p class="csg-hero-body">The hard part is knowing what you're trying to make before you make it. Knowing how to describe a feeling, a light source, a power dynamic, a surface texture — with enough specificity that the model actually does what you intend instead of what it assumes.</p>
+    <p class="csg-hero-body"><strong>CSG PRO is a 7-layer visual direction system</strong> built for creative directors who are tired of generating 40 images to find one that works. It's not a prompt library. It's a framework for thinking about images the way a director thinks about them — before the camera rolls.</p>
+    <div class="csg-hero-meta">
+      <div class="csg-meta-item">
+        <span class="csg-meta-label">Type</span>
+        <span class="csg-meta-value">Web Application</span>
+      </div>
+      <div class="csg-meta-item">
+        <span class="csg-meta-label">Stack</span>
+        <span class="csg-meta-value">Stripe · Firebase · Cloudflare</span>
+      </div>
+      <div class="csg-meta-item">
+        <span class="csg-meta-label">Built for</span>
+        <span class="csg-meta-value">Creative Directors</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT EXISTS -->
+<section class="csg-why reveal">
+  <div class="csg-why-label">Why It Exists</div>
+  <div class="csg-why-content">
+    <h2>Most people are prompting.<br><em>Very few are directing.</em></h2>
+    <p>There's a difference between describing what you want and knowing how to construct a visual. Prompting is describing. Directing is understanding — the relationship between subject and environment, the way light reveals or conceals, the lens choice that changes the power dynamic, the render parameters that determine whether something feels photographed or fabricated.</p>
+    <p>After years of AI creative direction — across healthcare campaigns, new business pitches, spec work, and independent projects — I kept solving the same problem: <strong>how do you translate creative intent into consistent, repeatable AI output?</strong> CSG PRO is the answer I built for myself, formalized into a system anyone can use.</p>
+    <p>The seven layers came from reverse-engineering what I was actually doing when the images worked. Not the prompts — the thinking behind the prompts. That's what the system captures.</p>
+  </div>
+</section>
+
+<!-- 7 LAYERS -->
+<section class="csg-layers reveal">
+  <div class="csg-layers-header">
+    <span class="csg-layers-label">The Seven Layers</span>
+    <div class="csg-layers-rule"></div>
+  </div>
+  <div class="csg-layer-grid">
+    <div class="csg-layer">
+      <div class="csg-layer-num">01</div>
+      <div class="csg-layer-name">Scene Foundation</div>
+      <div class="csg-layer-desc">The world the image lives in. Not just location — the logic of the environment. Industrial? Domestic? Liminal? The foundation determines everything that can happen inside it.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">02</div>
+      <div class="csg-layer-name">Character / Subject</div>
+      <div class="csg-layer-desc">Who or what is in the frame, and what do they carry. Posture, archetype, relationship to the camera. The subject is always in conversation with the environment — this layer defines what they're saying.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">03</div>
+      <div class="csg-layer-name">Environment / Location</div>
+      <div class="csg-layer-desc">The specific physics of the space. Texture, scale, depth. What's in focus and what's not. The difference between "warehouse" and "abandoned industrial space with corrugated iron and concrete dust" is everything.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">04</div>
+      <div class="csg-layer-name">Lighting Conditions</div>
+      <div class="csg-layer-desc">The most underspecified element in most prompts and the one that matters most. Direction, temperature, quality, source. Raking sidelight reads differently than diffused overcast. Every emotional register has a light.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">05</div>
+      <div class="csg-layer-name">Lens / Camera Specs</div>
+      <div class="csg-layer-desc">Focal length, aperture, format. A 35mm at f/1.4 is a different argument than a 85mm at f/8. The lens choice is a power choice — it determines the relationship between the viewer and the subject.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">06</div>
+      <div class="csg-layer-name">Mood / Atmosphere</div>
+      <div class="csg-layer-desc">The felt experience of the image. Not the subject matter — the register. Tension. Stillness. Menace. Warmth. This layer bridges the visual elements into an emotional argument.</div>
+    </div>
+    <div class="csg-layer">
+      <div class="csg-layer-num">07</div>
+      <div class="csg-layer-name">Render Parameters</div>
+      <div class="csg-layer-desc">Photographic or illustrated? Grain, sharpness, color science. The difference between something that reads as found and something that reads as made. The final calibration of reality.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="csg-how reveal">
+  <div class="csg-how-label">How It Works</div>
+  <div class="csg-how-grid">
+    <div class="csg-how-item">
+      <div class="csg-how-num">01</div>
+      <div class="csg-how-title">Build Your Direction</div>
+      <div class="csg-how-body">Work through the seven layers in sequence. The app guides you through each one with context and examples. By the time you reach layer seven, you've built a complete visual brief — not a description, a direction.</div>
+    </div>
+    <div class="csg-how-item">
+      <div class="csg-how-num">02</div>
+      <div class="csg-how-title">Generate With Intent</div>
+      <div class="csg-how-body">Take your structured direction into any AI image tool — Midjourney, Gemini Flash, Firefly. The framework is model-agnostic. What changes is the quality and consistency of what comes back. Less iteration. More signal.</div>
+    </div>
+    <div class="csg-how-item">
+      <div class="csg-how-num">03</div>
+      <div class="csg-how-title">Save and Repeat</div>
+      <div class="csg-how-body">Save your direction profiles. Reuse layers across projects. Build a library of proven visual setups. The system gets more valuable the more you use it — because your past directions become your new starting points.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="csg-for reveal">
+  <div class="csg-for-label">Who It's For</div>
+  <div class="csg-for-list">
+    <div class="csg-for-item">
+      <div class="csg-for-dot"></div>
+      <p class="csg-for-text"><strong>Creative directors</strong> who are spending more time regenerating than creating — and know the problem is in the direction, not the tool.</p>
+    </div>
+    <div class="csg-for-item">
+      <div class="csg-for-dot"></div>
+      <p class="csg-for-text"><strong>Brand strategists and designers</strong> who need to produce consistent visual language across a campaign without a full production team.</p>
+    </div>
+    <div class="csg-for-item">
+      <div class="csg-for-dot"></div>
+      <p class="csg-for-text"><strong>Agency creative leads</strong> who want to use AI in pitches and production without the output looking like it came from a prompt generator.</p>
+    </div>
+    <div class="csg-for-item">
+      <div class="csg-for-dot"></div>
+      <p class="csg-for-text"><strong>Founders and brand owners</strong> building visual identity without a creative director on staff — who need a system that gives their instincts a structure to work within.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="csg-cta reveal">
+  <h2>Stop prompting.<br><em>Start directing.</em></h2>
+  <p>CSG PRO is live at csgpro.app. Built for the creative directors who already know there's a better way to work — and want a system that proves it.</p>
+  <a href="https://csgpro.app" target="_blank" class="csg-cta-btn">Open CSG PRO →</a>
+  <p class="csg-cta-sub">csgpro.app &nbsp;·&nbsp; Stripe-secured &nbsp;·&nbsp; Built on Cloudflare</p>
+</section>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

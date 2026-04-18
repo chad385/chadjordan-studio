@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>About — Chad Jordan · Studio</title>
+<meta name="description" content="Chad Jordan — Creative producer for founders and CEOs. The R/D Framework: Resonance, Dissonance, and the gap between what a brand is and how it shows up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.ab-hero{padding:10rem 3rem 6rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;}
+.ab-hero-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;}
+.ab-hero-label::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+.ab-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.5rem);font-weight:400;line-height:1.08;color:var(--white);}
+.ab-hero h1 em{font-style:italic;color:var(--gold);}
+.ab-hero-right{border-left:0.5px solid var(--gold-rule);padding-left:5rem;display:flex;flex-direction:column;justify-content:flex-end;}
+.ab-hero-body{font-size:15px;line-height:1.9;color:var(--white-dim);margin-bottom:1.5rem;}
+.ab-hero-body strong{color:var(--white);font-weight:400;}
+
+.ab-producer{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:5rem;align-items:start;}
+.ab-producer-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:flex-start;padding-top:0.4rem;}
+.ab-producer-text{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2vw,1.75rem);font-weight:400;line-height:1.6;color:var(--white);font-style:italic;}
+.ab-producer-text strong{font-style:normal;color:var(--gold);}
+
+.ab-framework{padding:5rem 3rem 0;border-bottom:0.5px solid var(--gold-rule);background:var(--navy-mid);}
+.ab-framework-header{display:flex;align-items:center;gap:1rem;margin-bottom:3rem;}
+.ab-framework-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.ab-framework-rule{flex:1;height:0.5px;background:var(--gold-rule);}
+.ab-framework-intro{max-width:720px;margin-bottom:4rem;}
+.ab-framework-intro p{font-size:15px;line-height:1.9;color:var(--white-dim);}
+.ab-framework-intro p strong{color:var(--white);font-weight:400;}
+
+.ab-pillars{display:grid;grid-template-columns:repeat(5,1fr);border-top:0.5px solid var(--gold-rule);border-left:0.5px solid var(--gold-rule);}
+.ab-pillar{border-right:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);padding:2.5rem 2rem;}
+.ab-pillar-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:1rem;}
+.ab-pillar-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;color:var(--white);line-height:1.25;margin-bottom:1rem;font-style:italic;}
+.ab-pillar-body{font-size:13px;line-height:1.75;color:var(--white-dim);}
+
+.ab-rd{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);}
+.ab-rd-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.ab-rd-label::after{content:'';flex:1;height:0.5px;background:var(--gold-rule);}
+.ab-rd-text{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:400;line-height:1.5;color:var(--white);max-width:900px;font-style:italic;}
+.ab-rd-text em{color:var(--gold);}
+
+.ab-numbers{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:0.5px solid var(--gold-rule);}
+.ab-number-item{padding:3.5rem 2.5rem;border-right:0.5px solid var(--gold-rule);}
+.ab-number-item:last-child{border-right:none;}
+.ab-number-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--gold);line-height:1;margin-bottom:0.5rem;}
+.ab-number-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-dim);line-height:1.6;}
+
+.ab-career{padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);}
+.ab-career-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.ab-career-label::after{content:'';flex:1;height:0.5px;background:var(--gold-rule);}
+.ab-entries{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid var(--gold-rule);}
+.ab-entry{padding:2rem;border-right:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);}
+.ab-entry:nth-child(4n){border-right:none;}
+.ab-entry:nth-last-child(-n+4){border-bottom:none;}
+.ab-entry-year{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.5rem;}
+.ab-entry-company{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--white);margin-bottom:0.3rem;line-height:1.2;}
+.ab-entry-role{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--white-dim);line-height:1.5;}
+
+.ab-practice{padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.ab-practice-item{padding-right:3.5rem;border-right:0.5px solid var(--gold-rule);margin-right:3.5rem;}
+.ab-practice-item:last-child{border-right:none;padding-right:0;margin-right:0;}
+.ab-practice-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+.ab-practice-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:var(--white);margin-bottom:0.75rem;line-height:1.2;}
+.ab-practice-desc{font-size:13px;line-height:1.8;color:var(--white-dim);margin-bottom:1.25rem;}
+.ab-practice-link{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,169,110,0.6);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
+.ab-practice-link:hover{color:var(--gold);border-color:var(--gold);}
+
+.ab-contact{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.ab-contact h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1.5rem;}
+.ab-contact h2 em{font-style:italic;color:var(--gold);}
+.ab-contact p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:2.5rem;}
+.ab-contact-links{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;}
+.ab-contact-row{display:flex;flex-direction:column;gap:0.3rem;padding:1.25rem 0;border-bottom:0.5px solid var(--gold-rule);}
+.ab-contact-row:first-child{padding-top:0;}
+.ab-contact-row:last-child{border-bottom:none;padding-bottom:0;}
+.ab-contact-row-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.ab-contact-row a,.ab-contact-row span{font-size:14px;color:var(--white-dim);text-decoration:none;transition:color 0.2s;}
+.ab-contact-row a:hover{color:var(--gold);}
+
+@media(max-width:900px){
+  .ab-hero{grid-template-columns:1fr;gap:3rem;padding:8rem 1.5rem 4rem;}
+  .ab-hero-right{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2.5rem;}
+  .ab-producer{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem;}
+  .ab-producer-label{border-right:none;padding-right:0;align-self:auto;}
+  .ab-framework{padding:4rem 1.5rem 0;}
+  .ab-pillars{grid-template-columns:1fr 1fr;}
+  .ab-pillar:nth-child(2n){border-right:none;}
+  .ab-rd{padding:4rem 1.5rem;}
+  .ab-numbers{grid-template-columns:1fr 1fr;}
+  .ab-number-item:nth-child(2){border-right:none;}
+  .ab-number-item{padding:2.5rem 1.5rem;}
+  .ab-career{padding:4rem 1.5rem;}
+  .ab-entries{grid-template-columns:1fr 1fr;}
+  .ab-entry:nth-child(4n){border-right:0.5px solid var(--gold-rule);}
+  .ab-entry:nth-child(2n){border-right:none;}
+  .ab-entry:nth-last-child(-n+4){border-bottom:0.5px solid var(--gold-rule);}
+  .ab-entry:nth-last-child(-n+2){border-bottom:none;}
+  .ab-practice{grid-template-columns:1fr;padding:4rem 1.5rem;}
+  .ab-practice-item{border-right:none;padding-right:0;margin-right:0;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:0.5px solid var(--gold-rule);}
+  .ab-practice-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+  .ab-contact{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .ab-contact-links{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="https://csgpro.app" target="_blank">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="ab-hero reveal">
+  <div>
+    <div class="ab-hero-label">About</div>
+    <h1>I don't impose<br>your sound.<br>I <em>excavate</em> it.</h1>
+  </div>
+  <div class="ab-hero-right">
+    <p class="ab-hero-body">Like the great music producers, I go into the exploration without a predetermined answer. I hold it until something true surfaces, name it, and build the world around that name until it resonates. <strong>Not just looks right. Resonates.</strong></p>
+    <p class="ab-hero-body">The result isn't a brand that represents you. It's a brand you can inhabit — one that feels alive because it actually is. I'm a creative producer for founders and CEOs. Twenty years. A lot of industries. One consistent obsession.</p>
+  </div>
+</section>
+
+<!-- PRODUCER STATEMENT -->
+<section class="ab-producer reveal">
+  <div class="ab-producer-label">The Work</div>
+  <p class="ab-producer-text">
+    Twenty years directing brand across music retail, healthcare, defense tech, and consumer goods — national broadcast campaigns, Webby-winning digital platforms, DefenseTech identities, AI-powered production systems. Currently senior creative lead at Inizio Evoke, a top-10 global healthcare agency, and a member of the AI Trailblazers group. <strong>The tools have changed. The discipline hasn't.</strong>
+  </p>
+</section>
+
+<!-- R/D FRAMEWORK -->
+<section class="ab-framework reveal">
+  <div class="ab-framework-header">
+    <span class="ab-framework-label">The R/D Framework</span>
+    <div class="ab-framework-rule"></div>
+  </div>
+  <div class="ab-framework-intro">
+    <p>This isn't five random topics. It's a complete narrative with a beginning, a middle, and an end. The world has a problem — <strong>dissonance</strong>, caused by lowest common denominator thinking. There's a method for solving it — <strong>addition by subtraction</strong>. And there's an outcome worth working toward — <strong>resonance</strong>. R/D is the name for the whole journey.</p>
+  </div>
+  <div class="ab-pillars">
+    <div class="ab-pillar">
+      <div class="ab-pillar-num">01</div>
+      <div class="ab-pillar-title">Resonance</div>
+      <div class="ab-pillar-body">The destination. What a brand feels like when it's vibrating at its true frequency — alive, inhabitable, felt before it's understood. That's what people are actually hungry for, even when they can't name it.</div>
+    </div>
+    <div class="ab-pillar">
+      <div class="ab-pillar-num">02</div>
+      <div class="ab-pillar-title">Dissonance</div>
+      <div class="ab-pillar-body">The diagnosis. The gap between what a company presents and what it actually is. Once a founder has the word for it, they start seeing it everywhere. In their own company first.</div>
+    </div>
+    <div class="ab-pillar">
+      <div class="ab-pillar-num">03</div>
+      <div class="ab-pillar-title">Lowest Common Denominator</div>
+      <div class="ab-pillar-body">The cause. The safe choice, the committee-approved middle, the approach that ends up resonating with no one. It's not laziness. It's fear dressed up as strategy.</div>
+    </div>
+    <div class="ab-pillar">
+      <div class="ab-pillar-num">04</div>
+      <div class="ab-pillar-title">Addition by Subtraction</div>
+      <div class="ab-pillar-body">The method. The truest version of something emerges not by adding more but by removing what isn't it. Every element that doesn't belong gets removed until what remains is undeniably itself.</div>
+    </div>
+    <div class="ab-pillar">
+      <div class="ab-pillar-num">05</div>
+      <div class="ab-pillar-title">The Gap</div>
+      <div class="ab-pillar-body">R/D is the diagnostic lens. The distance between where a brand is and where it needs to be. The work is always about closing that gap — finding the frequency, removing the interference.</div>
+    </div>
+  </div>
+</section>
+
+<!-- R/D CLOSING STATEMENT -->
+<section class="ab-rd reveal">
+  <div class="ab-rd-label">The Point</div>
+  <p class="ab-rd-text">"When a founder has heard even one of these five ideas and felt it land — they already understand what I do better than any service description could explain. They don't need to be sold. They feel the <em>resonance.</em> And isn't that exactly the point."</p>
+</section>
+
+<!-- NUMBERS -->
+<div class="ab-numbers">
+  <div class="ab-number-item reveal">
+    <div class="ab-number-num">20+</div>
+    <div class="ab-number-label">Years Creative Direction</div>
+  </div>
+  <div class="ab-number-item reveal">
+    <div class="ab-number-num">2×</div>
+    <div class="ab-number-label">Webby National Honoree</div>
+  </div>
+  <div class="ab-number-item reveal">
+    <div class="ab-number-num">26M</div>
+    <div class="ab-number-label">Thrillist Video Views</div>
+  </div>
+  <div class="ab-number-item reveal">
+    <div class="ab-number-num">5</div>
+    <div class="ab-number-label">Major New Business Pitches Won with AI Production</div>
+  </div>
+</div>
+
+<!-- CAREER TIMELINE -->
+<section class="ab-career reveal">
+  <div class="ab-career-label">Career</div>
+  <div class="ab-entries">
+    <div class="ab-entry">
+      <div class="ab-entry-year">2000–2005</div>
+      <div class="ab-entry-company">SQN Communications Design</div>
+      <div class="ab-entry-role">Washington, DC</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2005–2007</div>
+      <div class="ab-entry-company">Zimmerman Advertising / Omnicom</div>
+      <div class="ab-entry-role">Fort Lauderdale</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2007–2009</div>
+      <div class="ab-entry-company">Tufenkian Artisan Carpets</div>
+      <div class="ab-entry-role">New York</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2009–2011</div>
+      <div class="ab-entry-company">Sprouts Farmers Market</div>
+      <div class="ab-entry-role">Phoenix — 5.6M weekly print circ</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2011–2013</div>
+      <div class="ab-entry-company">Guitar Center</div>
+      <div class="ab-entry-role">Westlake Village — 2× Webby</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2013–2014</div>
+      <div class="ab-entry-company">VMR Products</div>
+      <div class="ab-entry-role">Miami — CD, full marketing dept</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2015–Present</div>
+      <div class="ab-entry-company">Inizio Evoke</div>
+      <div class="ab-entry-role">Senior Creative Lead · AI Trailblazers</div>
+    </div>
+    <div class="ab-entry">
+      <div class="ab-entry-year">2020–Present</div>
+      <div class="ab-entry-company">Just Be Jack / Protocol Co.</div>
+      <div class="ab-entry-role">Founder — concurrent practice</div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEPENDENT PRACTICE -->
+<section class="ab-practice reveal">
+  <div class="ab-practice-item">
+    <div class="ab-practice-eyebrow">Brand Identity</div>
+    <div class="ab-practice-name">Just Be Jack</div>
+    <div class="ab-practice-desc">Brand identity and strategy for founders and executives. The work begins with excavation — not execution. Finding the true frequency before building the world around it.</div>
+    <a href="https://justbejack.com" target="_blank" class="ab-practice-link">justbejack.com</a>
+  </div>
+  <div class="ab-practice-item">
+    <div class="ab-practice-eyebrow">Creative Framework</div>
+    <div class="ab-practice-name">Protocol Co.</div>
+    <div class="ab-practice-desc">A productized clarity framework licensed to agencies. Reduces misalignment, cuts discovery by 70%, recovers billable hours. Recoups its cost in a single pitch.</div>
+    <a href="https://runtheprotocol.com" target="_blank" class="ab-practice-link">runtheprotocol.com</a>
+  </div>
+  <div class="ab-practice-item">
+    <div class="ab-practice-eyebrow">AI Direction Tool</div>
+    <div class="ab-practice-name">CSG PRO</div>
+    <div class="ab-practice-desc">A 7-layer AI visual direction system for creative directors who want repeatable, intentional image generation. Built as a full web app with Stripe, Firebase, and Cloudflare infrastructure.</div>
+    <a href="https://csgpro.app" target="_blank" class="ab-practice-link">csgpro.app</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ab-contact reveal">
+  <div>
+    <h2>If it landed —<br><em>let's talk.</em></h2>
+    <p>The founders who are ready will self-select. They feel the resonance. If you're reading this and something clicked — that's the signal.</p>
+    <a href="mailto:chad@justbejack.com" class="cta-link">Get in touch</a>
+  </div>
+  <div class="ab-contact-links">
+    <div class="ab-contact-row">
+      <span class="ab-contact-row-label">Email</span>
+      <a href="mailto:chad@justbejack.com">chad@justbejack.com</a>
+    </div>
+    <div class="ab-contact-row">
+      <span class="ab-contact-row-label">LinkedIn</span>
+      <a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">chad-jordan-388ab624</a>
+    </div>
+    <div class="ab-contact-row">
+      <span class="ab-contact-row-label">Location</span>
+      <span>Oaklyn, New Jersey</span>
+    </div>
+    <div class="ab-contact-row">
+      <span class="ab-contact-row-label">Currently</span>
+      <span>Senior Creative Lead · Inizio Evoke</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
