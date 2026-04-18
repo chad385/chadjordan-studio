@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>Range — Chad Jordan · Studio</title>
+<meta name="description" content="The range of AI creative direction across fashion, culture, lifestyle, architecture, and personal work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── PAGE HERO ── */
+.rg-hero {
+  padding: 10rem 3rem 5rem;
+  border-bottom: 0.5px solid var(--gold-rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: end;
+}
+.rg-hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.rg-hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 0.5px;
+  background: var(--gold);
+}
+.rg-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--white);
+}
+.rg-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.rg-hero-right {
+  padding-left: 4rem;
+  border-left: 0.5px solid var(--gold-rule);
+}
+.rg-hero-body {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--white-dim);
+  margin-bottom: 2rem;
+}
+.rg-stat-row {
+  display: flex;
+  gap: 3rem;
+  border-top: 0.5px solid var(--gold-rule);
+  padding-top: 1.5rem;
+}
+.rg-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.rg-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.rg-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+/* ── SECTION HEADER ── */
+.rg-section-header {
+  padding: 3rem 3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.rg-section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.rg-section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(237,232,220,0.35);
+}
+.rg-section-rule {
+  flex: 1;
+  height: 0.5px;
+  background: var(--gold-rule);
+}
+
+/* ── IMAGE BLOCKS ── */
+
+/* Full bleed */
+.rg-full {
+  width: 100%;
+  display: block;
+  border-top: 0.5px solid var(--gold-rule);
+  overflow: hidden;
+}
+.rg-full img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.92) saturate(0.95);
+  transition: filter 0.5s, transform 0.6s;
+}
+.rg-full:hover img {
+  filter: brightness(1) saturate(1);
+  transform: scale(1.02);
+}
+
+/* Two equal columns */
+.rg-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid var(--gold-rule);
+}
+.rg-pair img {
+  width: 100%;
+  display: block;
+  border-right: 0.5px solid var(--gold-rule);
+  filter: brightness(0.88) saturate(0.92);
+  transition: filter 0.5s;
+  object-fit: cover;
+}
+.rg-pair img:last-child { border-right: none; }
+.rg-pair img:hover { filter: brightness(1) saturate(1); }
+
+/* Asymmetric: wide left, portrait right */
+.rg-asym {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  border-top: 0.5px solid var(--gold-rule);
+}
+.rg-asym img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-right: 0.5px solid var(--gold-rule);
+  filter: brightness(0.88) saturate(0.92);
+  transition: filter 0.5s;
+}
+.rg-asym img:last-child { border-right: none; }
+.rg-asym img:hover { filter: brightness(1) saturate(1); }
+
+/* Asymmetric: portrait left, wide right */
+.rg-asym-rev {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  border-top: 0.5px solid var(--gold-rule);
+}
+.rg-asym-rev img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-right: 0.5px solid var(--gold-rule);
+  filter: brightness(0.88) saturate(0.92);
+  transition: filter 0.5s;
+}
+.rg-asym-rev img:last-child { border-right: none; }
+.rg-asym-rev img:hover { filter: brightness(1) saturate(1); }
+
+/* Caption */
+.rg-caption {
+  padding: 1.25rem 3rem;
+  border-bottom: 0.5px solid var(--gold-rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rg-caption-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.4);
+}
+.rg-caption-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.3);
+  border: 0.5px solid rgba(201,169,110,0.15);
+  padding: 4px 10px;
+}
+
+/* ── CONTEXT BLOCK — text between images ── */
+.rg-context {
+  padding: 4rem 3rem;
+  border-top: 0.5px solid var(--gold-rule);
+  border-bottom: 0.5px solid var(--gold-rule);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: var(--navy-mid);
+}
+.rg-context-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.4);
+  border-right: 0.5px solid var(--gold-rule);
+  padding-right: 4rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.rg-context-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--white);
+  font-style: italic;
+}
+
+/* ── CLOSING INSIGHT ── */
+.rg-insight {
+  padding: 6rem 3rem;
+  border-top: 0.5px solid var(--gold-rule);
+  border-bottom: 0.5px solid var(--gold-rule);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: var(--navy-mid);
+}
+.rg-insight-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.4);
+  border-right: 0.5px solid var(--gold-rule);
+  padding-right: 4rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.rg-insight-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--white);
+  font-style: italic;
+}
+
+/* ── BACK TO WORK ── */
+.rg-back {
+  display: block;
+  text-decoration: none;
+  padding: 4rem 3rem;
+  border-top: 0.5px solid var(--gold-rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+.rg-back:hover { background: var(--navy-mid); }
+.rg-back-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.6);
+  margin-bottom: 0.5rem;
+}
+.rg-back-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--white);
+}
+.rg-back-arrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width: 900px) {
+  .rg-hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 8rem 1.5rem 3.5rem; }
+  .rg-hero-right { border-left: none; padding-left: 0; border-top: 0.5px solid var(--gold-rule); padding-top: 2rem; }
+  .rg-pair { grid-template-columns: 1fr; }
+  .rg-pair img { border-right: none; border-bottom: 0.5px solid var(--gold-rule); }
+  .rg-pair img:last-child { border-bottom: none; }
+  .rg-asym { grid-template-columns: 1fr; }
+  .rg-asym img { border-right: none; border-bottom: 0.5px solid var(--gold-rule); height: 280px; }
+  .rg-asym img:last-child { border-bottom: none; }
+  .rg-asym-rev { grid-template-columns: 1fr; }
+  .rg-asym-rev img { border-right: none; border-bottom: 0.5px solid var(--gold-rule); height: 280px; }
+  .rg-asym-rev img:last-child { border-bottom: none; }
+  .rg-context { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.5rem; }
+  .rg-context-label { border-right: none; padding-right: 0; align-self: auto; }
+  .rg-insight { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem; }
+  .rg-insight-label { border-right: none; padding-right: 0; align-self: auto; }
+  .rg-section-header { padding: 2.5rem 1.5rem 0; }
+  .rg-caption { padding: 1rem 1.5rem; }
+  .rg-back { padding: 3rem 1.5rem; }
+  .rg-stat-row { gap: 2rem; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="https://csgpro.app" target="_blank">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="rg-hero reveal">
+  <div>
+    <div class="rg-hero-label">AI Creative Range</div>
+    <h1>What the system<br>can <em>actually do.</em></h1>
+  </div>
+  <div class="rg-hero-right">
+    <p class="rg-hero-body">These aren't case studies. No brief, no client, no deliverable. This is range — the breadth of registers, aesthetics, and executions that AI creative direction can reach when the direction is intentional. Fashion editorial to architectural photography. Sports culture to personal work. The tool is consistent. The eye is the variable.</p>
+    <div class="rg-stat-row">
+      <div class="rg-stat">
+        <span class="rg-stat-num">9</span>
+        <span class="rg-stat-label">Images</span>
+      </div>
+      <div class="rg-stat">
+        <span class="rg-stat-num">5</span>
+        <span class="rg-stat-label">Registers</span>
+      </div>
+      <div class="rg-stat">
+        <span class="rg-stat-num">3</span>
+        <span class="rg-stat-label">Tools</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 FASHION / EDITORIAL ── -->
+<div class="rg-section-header reveal">
+  <span class="rg-section-num">01</span>
+  <span class="rg-section-title">Fashion &nbsp;/&nbsp; Editorial</span>
+  <div class="rg-section-rule"></div>
+</div>
+
+<!-- Fashion energy — full bleed -->
+<div class="rg-full reveal">
+  <img src="images/gallery/gal_fashion_energy.png" alt="High fashion editorial — luminous energy dress, teal studio">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Luminous energy — fashion editorial, studio, teal ground</span>
+  <span class="rg-caption-tag">Midjourney V7</span>
+</div>
+
+<!-- Fashion pair: halftone + palms -->
+<div class="rg-pair reveal">
+  <img src="images/gallery/gal_fashion_halftone.png" alt="High fashion editorial — halftone B&W, coastal environment" style="max-height:540px;">
+  <img src="images/gallery/gal_fashion_palms.png" alt="Fashion editorial — palm hotel, moody evening light" style="max-height:540px;">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Halftone coastal / Palm hotel evening — editorial register, two lighting conditions</span>
+  <span class="rg-caption-tag">Midjourney V7</span>
+</div>
+
+<!-- Context break -->
+<div class="rg-context reveal">
+  <div class="rg-context-label">On Fashion Direction</div>
+  <p class="rg-context-text">"Fashion is the hardest register to hit because the margin for error is zero. The model, the light, the fabric — one thing off and the whole image reads wrong. These three frames are about holding that tension."</p>
+</div>
+
+<!-- ── 02 CULTURE / CAMPAIGN ── -->
+<div class="rg-section-header reveal">
+  <span class="rg-section-num">02</span>
+  <span class="rg-section-title">Culture &nbsp;/&nbsp; Campaign</span>
+  <div class="rg-section-rule"></div>
+</div>
+
+<!-- NBA full bleed -->
+<div class="rg-full reveal">
+  <img src="images/gallery/gal_nba_collage.png" alt="NBA culture campaign — collage, street court, heroic silhouette">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Street court heroic — NBA culture, collage treatment, high contrast</span>
+  <span class="rg-caption-tag">Gemini Flash</span>
+</div>
+
+<!-- ── 03 LIFESTYLE / PRODUCT ── -->
+<div class="rg-section-header reveal">
+  <span class="rg-section-num">03</span>
+  <span class="rg-section-title">Lifestyle &nbsp;/&nbsp; Product</span>
+  <div class="rg-section-rule"></div>
+</div>
+
+<!-- Runner eye + Nike portrait asymmetric -->
+<div class="rg-asym reveal">
+  <img src="images/gallery/gal_runner_eye.png" alt="Runner extreme close-up — eye and sweat particles, motion blur" style="max-height:600px;">
+  <img src="images/gallery/gal_nike_portrait.png" alt="Nike lifestyle portrait — editorial seated, natural light interior" style="max-height:600px;">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Runner macro / Nike lifestyle — two ends of the product campaign spectrum</span>
+  <span class="rg-caption-tag">Gemini Flash</span>
+</div>
+
+<!-- Context break -->
+<div class="rg-context reveal">
+  <div class="rg-context-label">On Product Direction</div>
+  <p class="rg-context-text">"The runner eye and the Nike portrait are the same brief at different focal lengths. One is sensation — the physics of effort. The other is aspiration — the stillness after. A campaign needs both."</p>
+</div>
+
+<!-- ── 04 ARCHITECTURE / ENVIRONMENT ── -->
+<div class="rg-section-header reveal">
+  <span class="rg-section-num">04</span>
+  <span class="rg-section-title">Architecture &nbsp;/&nbsp; Environment</span>
+  <div class="rg-section-rule"></div>
+</div>
+
+<!-- Container home full bleed -->
+<div class="rg-full reveal">
+  <img src="images/gallery/gal_container_home.png" alt="Cinematic B&W — container home at dusk, waterfront, glowing interior">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Container home — cinematic B&W, dusk, waterfront city behind</span>
+  <span class="rg-caption-tag">Gemini Flash</span>
+</div>
+
+<!-- ── 05 PERSONAL ── -->
+<div class="rg-section-header reveal">
+  <span class="rg-section-num">05</span>
+  <span class="rg-section-title">Personal</span>
+  <div class="rg-section-rule"></div>
+</div>
+
+<!-- Two dogs -->
+<div class="rg-pair reveal">
+  <img src="images/gallery/gal_dog_window.png" alt="Golden doodle nose on window — sunset reflection, California light" style="max-height:500px; object-fit:cover; object-position: center;">
+  <img src="images/gallery/gal_dog_truck.png" alt="Black doodle in truck bed — moody autumn, plaid bandana" style="max-height:500px; object-fit:cover;">
+</div>
+<div class="rg-caption reveal">
+  <span class="rg-caption-text">Window light / Truck bed — personal, two moods, same affection</span>
+  <span class="rg-caption-tag">Gemini Flash</span>
+</div>
+
+<!-- CLOSING INSIGHT -->
+<div class="rg-insight reveal">
+  <div class="rg-insight-label">The Point</div>
+  <p class="rg-insight-text">"Range isn't about doing everything. It's about proving you understand the difference between registers — and can move between them without losing the thread."</p>
+</div>
+
+<!-- BACK TO WORK -->
+<a href="index.html#work" class="rg-back">
+  <div>
+    <div class="rg-back-label">Back to</div>
+    <div class="rg-back-title">All Work</div>
+  </div>
+  <div class="rg-back-arrow">←</div>
+</a>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
