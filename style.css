@@ -449,9 +449,33 @@ footer{
 .reveal.visible{opacity:1;transform:none;}
 
 /* RESPONSIVE */
+/* HAMBURGER */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:110;}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--white);transition:transform 0.3s ease,opacity 0.3s ease,background 0.2s;}
+.nav-toggle:hover span{background:var(--gold);}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;}
-  .nav-links{gap:1.5rem;}
+  .nav-toggle{display:flex;}
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(13,27,46,0.98);
+    backdrop-filter:blur(20px);
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2.5rem;
+    z-index:105;
+    list-style:none;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:1.2rem;letter-spacing:0.15em;color:var(--white-dim);}
+  .nav-links a:hover{color:var(--gold);}
   .hero-content{padding:0 1.5rem 4rem;}
   .hero-headline{font-size:2.2rem;}
   .hero-meta{flex-direction:column;gap:1.5rem;}
