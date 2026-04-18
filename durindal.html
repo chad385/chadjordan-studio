@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durindal — Chad Jordan · Studio</title>
+<meta name="description" content="Full brand system for a DefenseTech GTM firm. Identity, Tactical Luxury moodboards, cinematic founder imagery, and a complete brand world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.cs-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.35) saturate(0.8);}
+.cs-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,46,0.97) 0%,rgba(13,27,46,0.15) 50%,transparent 100%);}
+.cs-hero-content{position:relative;z-index:1;padding:0 3rem 4rem;}
+.cs-back{position:absolute;top:6rem;left:3rem;z-index:2;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.6);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;}
+.cs-back:hover{color:var(--gold);}
+.cs-back::before{content:'←';}
+.cs-category{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.cs-category::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+.cs-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:0.5rem;}
+.cs-title em{font-style:italic;color:var(--gold);}
+.cs-subtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(237,232,220,0.4);}
+
+.cs-brief{display:grid;grid-template-columns:1fr 1fr;gap:5rem;padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);}
+.cs-brief-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;}
+.cs-brief-left h2 em{font-style:italic;color:var(--gold);}
+.cs-brief-left p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:1rem;}
+.cs-brief-right{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;justify-content:center;}
+.cs-meta-row{display:flex;flex-direction:column;gap:0.3rem;padding:1.25rem 0;border-bottom:0.5px solid var(--gold-rule);}
+.cs-meta-row:first-child{padding-top:0;}
+.cs-meta-row:last-child{border-bottom:none;padding-bottom:0;}
+.cs-meta-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.45);}
+.cs-meta-value{font-size:14px;color:var(--white-dim);}
+
+.cs-process{padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);background:var(--navy-mid);}
+.cs-process-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,169,110,0.4);margin-bottom:3rem;display:flex;align-items:center;gap:1rem;}
+.cs-process-label::after{content:'';flex:1;height:0.5px;background:var(--gold-rule);}
+.cs-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:0.5px solid var(--gold-rule);}
+.cs-step{padding:2rem;border-right:0.5px solid var(--gold-rule);}
+.cs-step:last-child{border-right:none;}
+.cs-step-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.75rem;}
+.cs-step-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:0.75rem;line-height:1.2;}
+.cs-step-body{font-size:13px;line-height:1.7;color:var(--white-dim);}
+
+.cs-image-full{width:100%;display:block;border-top:0.5px solid var(--gold-rule);}
+.cs-image-full img{width:100%;display:block;filter:brightness(0.9) saturate(0.9);transition:filter 0.4s;}
+.cs-image-full img:hover{filter:brightness(1) saturate(1);}
+.cs-image-caption{padding:1.25rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:flex;justify-content:space-between;align-items:center;}
+.cs-caption-text{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.cs-caption-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:rgba(237,232,220,0.2);}
+
+.cs-image-pair{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--gold-rule);}
+.cs-image-pair img{width:100%;display:block;border-right:0.5px solid var(--gold-rule);filter:brightness(0.85) saturate(0.85);transition:filter 0.4s;}
+.cs-image-pair img:last-child{border-right:none;}
+.cs-image-pair img:hover{filter:brightness(1) saturate(1);}
+
+/* MAP FEATURE */
+.cs-map-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:0.5px solid var(--gold-rule);
+  background:var(--navy-mid);
+}
+.cs-map-context{
+  padding:4rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-right:0.5px solid var(--gold-rule);
+}
+.cs-map-context-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);margin-bottom:1.5rem;}
+.cs-map-headline{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2vw,2rem);font-weight:400;color:var(--white);line-height:1.25;margin-bottom:1.25rem;font-style:italic;}
+.cs-map-body{font-size:14px;line-height:1.85;color:var(--white-dim);margin-bottom:2rem;}
+.cs-map-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);border:0.5px solid rgba(201,169,110,0.3);padding:6px 14px;display:inline-block;}
+.cs-map-image{overflow:hidden;}
+.cs-map-image img{width:100%;display:block;filter:brightness(0.95);transition:filter 0.4s;}
+.cs-map-image img:hover{filter:brightness(1.05);}
+
+/* PRODUCT PAIR - carabiner and duffel side by side */
+.cs-product-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:0.5px solid var(--gold-rule);
+}
+.cs-product-item{
+  position:relative;
+  overflow:hidden;
+  border-right:0.5px solid var(--gold-rule);
+}
+.cs-product-item:last-child{border-right:none;}
+.cs-product-item img{
+  width:100%;
+  display:block;
+  filter:brightness(0.88) saturate(0.85);
+  transition:filter 0.4s,transform 0.5s;
+}
+.cs-product-item:hover img{filter:brightness(1) saturate(1);transform:scale(1.02);}
+.cs-product-label{
+  position:absolute;
+  bottom:1.5rem;
+  left:1.5rem;
+  font-family:'DM Mono',monospace;
+  font-size:9px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(13,27,46,0.75);
+  padding:5px 12px;
+  border:0.5px solid rgba(201,169,110,0.3);
+}
+
+.cs-insight{padding:6rem 3rem;border-top:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:center;background:var(--navy-mid);}
+.cs-insight-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:center;}
+.cs-insight-text{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,2rem);font-weight:400;line-height:1.5;color:var(--white);font-style:italic;}
+
+.cs-next{display:block;text-decoration:none;position:relative;overflow:hidden;aspect-ratio:21/6;border-top:0.5px solid var(--gold-rule);}
+.cs-next-bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:brightness(0.3) saturate(0.7);transition:filter 0.6s,transform 0.7s;}
+.cs-next:hover .cs-next-bg{filter:brightness(0.45) saturate(0.9);transform:scale(1.03);}
+.cs-next-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:3rem;background:linear-gradient(to right,rgba(13,27,46,0.8) 0%,transparent 60%);}
+.cs-next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.6);margin-bottom:0.75rem;}
+.cs-next-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:400;color:var(--white);line-height:1.15;}
+
+@media(max-width:900px){
+  .cs-hero-content{padding:0 1.5rem 3rem;}
+  .cs-back{left:1.5rem;}
+  .cs-brief{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .cs-brief-right{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2rem;}
+  .cs-steps{grid-template-columns:1fr 1fr;}
+  .cs-step{border-bottom:0.5px solid var(--gold-rule);}
+  .cs-steps .cs-step:nth-child(3),.cs-steps .cs-step:nth-child(4){border-bottom:none;}
+  .cs-image-pair{grid-template-columns:1fr;}
+  .cs-map-section{grid-template-columns:1fr;}
+  .cs-map-context{border-right:none;border-bottom:0.5px solid var(--gold-rule);padding:2.5rem 1.5rem;}
+  .cs-product-pair{grid-template-columns:1fr;}
+  .cs-product-item{border-right:none;border-bottom:0.5px solid var(--gold-rule);}
+  .cs-product-item:last-child{border-bottom:none;}
+  .cs-insight{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem;}
+  .cs-insight-label{border-right:none;padding-right:0;align-self:auto;}
+  .cs-process{padding:4rem 1.5rem;}
+  .cs-image-caption{padding:1rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="https://csgpro.app" target="_blank">CSG Pro</a></li>
+    <li><a href="mailto:chad@urbanlifeinc.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <a href="index.html#work" class="cs-back">All Work</a>
+  <img class="cs-hero-img" src="images/durindal/dur_hero.png" alt="Durindal — man standing alone in glass-walled boardroom at night">
+  <div class="cs-hero-overlay"></div>
+  <div class="cs-hero-content">
+    <div class="cs-category">04 — Brand System</div>
+    <h1 class="cs-title">Durindal<br><em>Tactical Luxury</em></h1>
+    <div class="cs-subtitle">DefenseTech GTM &nbsp;·&nbsp; Full Brand System &nbsp;·&nbsp; Cinematic Identity &nbsp;·&nbsp; 2024</div>
+  </div>
+</section>
+
+<!-- BRIEF -->
+<section class="cs-brief reveal">
+  <div class="cs-brief-left">
+    <h2>Where defense meets<br><em>precision luxury.</em></h2>
+    <p>Durindal is a DefenseTech go-to-market firm — founded by Garrath Robinson and Sebastian D.P. Hidalgo. The brief began as a website. It expanded into something larger: a complete brand world that had to operate in both the boardroom and the field without blinking.</p>
+    <p>Tactical Luxury became the brand system — identity, cinematic founder imagery, moodboards, site redesign, and a strategic decision filter framework. Everything built to communicate that this is a firm where precision is non-negotiable and the aesthetic matches the capability.</p>
+    <p style="font-size:13px;color:rgba(237,232,220,0.35);font-style:italic;">Full public use granted by Durindal founders.</p>
+  </div>
+  <div class="cs-brief-right">
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Project Type</span>
+      <span class="cs-meta-value">Full Brand System</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Client</span>
+      <span class="cs-meta-value">Durindal — DefenseTech GTM</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Positioning</span>
+      <span class="cs-meta-value">Tactical Luxury</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Deliverables</span>
+      <span class="cs-meta-value">Identity · Imagery · Site · Brand Framework</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Tools</span>
+      <span class="cs-meta-value">Gemini Flash · Midjourney · CSG PRO</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Year</span>
+      <span class="cs-meta-value">2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="cs-process reveal">
+  <div class="cs-process-label">Creative Process</div>
+  <div class="cs-steps">
+    <div class="cs-step">
+      <div class="cs-step-num">01</div>
+      <div class="cs-step-title">Brand Positioning</div>
+      <div class="cs-step-body">Established Tactical Luxury as the brand territory — the intersection where defense-grade precision meets high-end aesthetic sensibility. A filter for every creative decision that followed.</div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">02</div>
+      <div class="cs-step-title">Cinematic Identity</div>
+      <div class="cs-step-body">Built the visual language around glass, concrete, low light, and controlled motion. Every image directed to communicate authority without aggression — the posture of a firm that doesn't need to announce itself.</div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">03</div>
+      <div class="cs-step-title">Brand Extension</div>
+      <div class="cs-step-body">Extended the system into product territory — a branded duffel in six environments, a logo translated into a machined metal carabiner, and a tactical operational map as brand collateral. The world, fully inhabited.</div>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">04</div>
+      <div class="cs-step-title">Decision Framework</div>
+      <div class="cs-step-body">Delivered a brand decision filter — a strategic tool the founders use to evaluate whether any creative, messaging, or positioning decision is on-brand. Tactical Luxury as a living operating system.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO - BOARDROOM -->
+<div class="cs-image-full reveal">
+  <img src="images/durindal/dur_hero.png" alt="Durindal brand imagery — man standing alone in glass boardroom at night">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Brand Hero — The posture of authority. GRID 42T / REV 1.2</span>
+  <span class="cs-caption-num">01 / 05</span>
+</div>
+
+<!-- PAIR: BRIEFING / WINDOW -->
+<div class="cs-image-pair reveal">
+  <img src="images/durindal/dur_briefing.png" alt="Durindal founders briefing through glass wall at night">
+  <img src="images/durindal/dur_window.png" alt="Durindal founder at window with tablet — glass reflection">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Founder Imagery — The briefing / Field intelligence</span>
+  <span class="cs-caption-num">02–03 / 05</span>
+</div>
+
+<!-- DOSSIER -->
+<div class="cs-image-full reveal">
+  <img src="images/durindal/dur_dossier.png" alt="Gloved hand placing tactical dossier on carbon fiber surface — GRID 42T / REV 1.2">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Brand Collateral — Tactical dossier, carbon fiber, GRID 42T markings</span>
+  <span class="cs-caption-num">04 / 05</span>
+</div>
+
+<!-- MAP FEATURE -->
+<div class="cs-map-section reveal">
+  <div class="cs-map-context">
+    <div class="cs-map-context-label">Brand Collateral</div>
+    <div class="cs-map-headline">An operational map as a brand artifact.</div>
+    <p class="cs-map-body">Project Midnight Strike — GRID 42T / REV 1.2 / 06-19-20:19Z. A complete tactical planning document generated as brand collateral. Not decoration. A functional artifact that communicates exactly what Durindal does and how they think — down to the grid coordinates and revision stamp.</p>
+    <span class="cs-map-tag">AI-Generated Brand Artifact</span>
+  </div>
+  <div class="cs-map-image">
+    <img src="images/durindal/dur_map.png" alt="Durindal operational overview map — Project Midnight Strike, GRID 42T / REV 1.2">
+  </div>
+</div>
+
+<!-- PRODUCT PAIR: CARABINER / DUFFEL -->
+<div class="cs-product-pair reveal">
+  <div class="cs-product-item">
+    <img src="images/durindal/dur_carabiner.png" alt="Durindal logo translated into machined metal carabiner — titanium and bronze">
+    <div class="cs-product-label">Logo → Object — Machined Carabiner</div>
+  </div>
+  <div class="cs-product-item">
+    <img src="images/durindal/dur_duffel.png" alt="Durindal branded duffel bag in six environments — private jet, security scanner, rain-soaked trunk">
+    <div class="cs-product-label">Product Extension — Tactical Duffel, 6 Environments</div>
+  </div>
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Brand Extensions — Identity as object / Product in world</span>
+  <span class="cs-caption-num">05 / 05</span>
+</div>
+
+<!-- INSIGHT -->
+<section class="cs-insight reveal">
+  <div class="cs-insight-label">The Proof</div>
+  <p class="cs-insight-text">
+    "The brief was a website.<br>
+    The output was a complete brand world —<br>
+    identity, imagery, collateral, and a decision<br>
+    filter the founders still use today."
+  </p>
+</section>
+
+<!-- NEXT PROJECT -->
+<a href="fieldhouse.html" class="cs-next">
+  <img class="cs-next-bg" src="images/fieldhouse.png" alt="The Field House Series editorial direction">
+  <div class="cs-next-overlay">
+    <div class="cs-next-label">Next Project</div>
+    <div class="cs-next-title">The Field House Series<br>Functional Sanctuary</div>
+  </div>
+</a>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

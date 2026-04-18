@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porsche 928 — Chad Jordan · Studio</title>
+<meta name="description" content="The Forgotten Grand Tourer. A personal editorial exploration — four shots, one car, the Porsche that history got wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.cs-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.35) saturate(0.7);}
+.cs-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,46,0.98) 0%,rgba(13,27,46,0.15) 55%,transparent 100%);}
+.cs-hero-content{position:relative;z-index:1;padding:0 3rem 4rem;}
+.cs-back{position:absolute;top:6rem;left:3rem;z-index:2;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.6);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;}
+.cs-back:hover{color:var(--gold);}
+.cs-back::before{content:'←';}
+.cs-category{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.cs-category::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+.cs-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:0.5rem;}
+.cs-title em{font-style:italic;color:var(--gold);}
+.cs-subtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(237,232,220,0.4);}
+
+/* BRIEF - single column for personal project */
+.cs-brief-single{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  padding:5rem 3rem;
+  border-bottom:0.5px solid var(--gold-rule);
+}
+.cs-brief-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;}
+.cs-brief-left h2 em{font-style:italic;color:var(--gold);}
+.cs-brief-left p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:1rem;}
+.cs-brief-right{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;justify-content:center;}
+.cs-meta-row{display:flex;flex-direction:column;gap:0.3rem;padding:1.25rem 0;border-bottom:0.5px solid var(--gold-rule);}
+.cs-meta-row:first-child{padding-top:0;}
+.cs-meta-row:last-child{border-bottom:none;padding-bottom:0;}
+.cs-meta-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.45);}
+.cs-meta-value{font-size:14px;color:var(--white-dim);}
+
+.cs-image-full{width:100%;display:block;border-top:0.5px solid var(--gold-rule);}
+.cs-image-full img{width:100%;display:block;filter:brightness(0.88) saturate(0.8);transition:filter 0.5s;}
+.cs-image-full img:hover{filter:brightness(1) saturate(0.95);}
+.cs-image-caption{padding:1.25rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:flex;justify-content:space-between;align-items:center;}
+.cs-caption-text{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.cs-caption-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:rgba(237,232,220,0.2);}
+
+.cs-image-pair{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--gold-rule);}
+.cs-image-pair img{width:100%;display:block;border-right:0.5px solid var(--gold-rule);filter:brightness(0.82) saturate(0.75);transition:filter 0.5s;}
+.cs-image-pair img:last-child{border-right:none;}
+.cs-image-pair img:hover{filter:brightness(1) saturate(0.95);}
+
+/* EDITORIAL TEXT BREAK */
+.cs-text-break{
+  padding:5rem 3rem;
+  border-top:0.5px solid var(--gold-rule);
+  border-bottom:0.5px solid var(--gold-rule);
+  background:var(--navy-mid);
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:4rem;
+  align-items:start;
+}
+.cs-text-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(201,169,110,0.4);
+  padding-top:0.3rem;
+}
+.cs-text-body{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,1.6vw,1.4rem);
+  font-weight:400;
+  line-height:1.7;
+  color:rgba(237,232,220,0.75);
+  font-style:italic;
+}
+.cs-text-body strong{
+  font-style:normal;
+  color:var(--white);
+  font-weight:400;
+}
+
+.cs-insight{padding:6rem 3rem;border-top:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:center;background:var(--navy-mid);}
+.cs-insight-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:center;}
+.cs-insight-text{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,2rem);font-weight:400;line-height:1.5;color:var(--white);font-style:italic;}
+
+/* END OF WORK — links back to home */
+.cs-end{
+  display:block;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:21/6;
+  border-top:0.5px solid var(--gold-rule);
+}
+.cs-end-bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:brightness(0.25) saturate(0.6);transition:filter 0.6s,transform 0.7s;}
+.cs-end:hover .cs-end-bg{filter:brightness(0.4) saturate(0.8);transform:scale(1.03);}
+.cs-end-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.cs-end-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.6);margin-bottom:0.75rem;}
+.cs-end-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:400;color:var(--white);line-height:1.15;}
+
+@media(max-width:900px){
+  .cs-hero-content{padding:0 1.5rem 3rem;}
+  .cs-back{left:1.5rem;}
+  .cs-brief-single{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .cs-brief-right{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2rem;}
+  .cs-image-pair{grid-template-columns:1fr;}
+  .cs-text-break{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem;}
+  .cs-insight{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem;}
+  .cs-insight-label{border-right:none;padding-right:0;align-self:auto;}
+  .cs-image-caption{padding:1rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="https://csgpro.app" target="_blank">CSG Pro</a></li>
+    <li><a href="mailto:chad@urbanlifeinc.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <a href="index.html#work" class="cs-back">All Work</a>
+  <img class="cs-hero-img" src="images/porsche928/p_sleeping.png" alt="Porsche 928 — The Sleeping Grand Tourer — rear view in foggy industrial warehouse">
+  <div class="cs-hero-overlay"></div>
+  <div class="cs-hero-content">
+    <div class="cs-category">06 — Personal Exploration</div>
+    <h1 class="cs-title">Porsche 928<br><em>The Forgotten Grand Tourer</em></h1>
+    <div class="cs-subtitle">Automotive Editorial &nbsp;·&nbsp; Mood Direction &nbsp;·&nbsp; Personal Work &nbsp;·&nbsp; 2025</div>
+  </div>
+</section>
+
+<!-- BRIEF -->
+<section class="cs-brief-single reveal">
+  <div class="cs-brief-left">
+    <h2>The Porsche that history<br><em>got wrong.</em></h2>
+    <p>The 928 was supposed to replace the 911. Instead it became the most misunderstood car Porsche ever built — too grand for the purists, too unconventional for everyone else. It ended production in 1995 with a devoted following and almost no cultural moment of its own.</p>
+    <p>This is a personal project. No brief, no client. Just four shots built to give the 928 the editorial it never had — cinematic, restrained, and honest about what it actually is: a front-engined V8 grand tourer that aged into something genuinely beautiful.</p>
+  </div>
+  <div class="cs-brief-right">
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Project Type</span>
+      <span class="cs-meta-value">Personal Exploration</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Subject</span>
+      <span class="cs-meta-value">Porsche 928 — 1977–1995</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Concept</span>
+      <span class="cs-meta-value">The Forgotten Grand Tourer</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Deliverables</span>
+      <span class="cs-meta-value">4-shot editorial series</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Tools</span>
+      <span class="cs-meta-value">Midjourney · Gemini Flash · CSG PRO</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Year</span>
+      <span class="cs-meta-value">2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- THE SLEEPING GRAND TOURER -->
+<div class="cs-image-full reveal">
+  <img src="images/porsche928/p_sleeping.png" alt="The Sleeping Grand Tourer — Porsche 928 rear view in abandoned warehouse">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The Sleeping Grand Tourer — Rear symmetry, industrial warehouse</span>
+  <span class="cs-caption-num">01 / 04</span>
+</div>
+
+<!-- TEXT BREAK -->
+<div class="cs-text-break reveal">
+  <div class="cs-text-label">On the 928</div>
+  <p class="cs-text-body">
+    <strong>It never wanted to be the 911.</strong> That was the problem. The 928 wanted to be something else entirely — a continent-crossing machine built around comfort without apologizing for performance. A car for the kind of person who reads Camus and knows their way around a wine list and still takes corners faster than they should. History gave it a reputation it didn't deserve. The editorial gives it four frames to make the case.
+  </p>
+</div>
+
+<!-- SWEEPING PROFILE -->
+<div class="cs-image-full reveal">
+  <img src="images/porsche928/p_profile.png" alt="The Sweeping Profile — Porsche 928 three-quarter front in industrial warehouse">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The Sweeping Profile — Three-quarter front, brick warehouse, diffused light</span>
+  <span class="cs-caption-num">02 / 04</span>
+</div>
+
+<!-- PAIR: COCKPIT / GARAGE -->
+<div class="cs-image-pair reveal">
+  <img src="images/porsche928/p_cockpit.png" alt="Analog Cockpit — Porsche 928 steering wheel and instrument cluster">
+  <img src="images/porsche928/p_garage.png" alt="The Glass Hatch — Porsche 928 sweeping profile in clean garage">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Analog Cockpit / The Glass Hatch — Interior detail and clean profile</span>
+  <span class="cs-caption-num">03–04 / 04</span>
+</div>
+
+<!-- INSIGHT -->
+<section class="cs-insight reveal">
+  <div class="cs-insight-label">The Point</div>
+  <p class="cs-insight-text">
+    "No brief. No client. No budget.<br>
+    Just a car that deserved better than<br>
+    the editorial history gave it."
+  </p>
+</section>
+
+<!-- END — BACK TO ALL WORK -->
+<a href="index.html#work" class="cs-end">
+  <img class="cs-end-bg" src="images/hero.png" alt="Chad Jordan — Hong Kong night market">
+  <div class="cs-end-overlay">
+    <div class="cs-end-label">That's the work</div>
+    <div class="cs-end-title">View All Projects</div>
+  </div>
+</a>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
