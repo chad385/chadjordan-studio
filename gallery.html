@@ -8,7 +8,7 @@
 <meta name="description" content="The range of AI creative direction across fashion, culture, lifestyle, architecture, and personal work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <style>
 
 /* ── PAGE HERO ── */
@@ -346,6 +346,7 @@
 </nav>
 
 <div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
   <ul class="nav-overlay-links">
     <li><a href="index.html#work">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -489,13 +490,13 @@
   <p class="rg-insight-text">"Range isn't about doing everything. It's about proving you understand the difference between registers — and can move between them without losing the thread."</p>
 </div>
 
-<!-- BACK TO WORK -->
-<a href="index.html#work" class="rg-back">
+<!-- NEXT PROJECT -->
+<a href="director.html" class="rg-back">
   <div>
-    <div class="rg-back-label">Back to</div>
-    <div class="rg-back-title">All Work</div>
+    <div class="rg-back-label">Next Project</div>
+    <div class="rg-back-title">The Director</div>
   </div>
-  <div class="rg-back-arrow">←</div>
+  <div class="rg-back-arrow">→</div>
 </a>
 
 <footer>
@@ -511,18 +512,26 @@
 <script>
 const navToggle = document.getElementById("nav-toggle");
 const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){
+  navToggle.classList.remove("open");
+  navOverlay.classList.remove("open");
+}
+function openNav(){
+  navToggle.classList.add("open");
+  navOverlay.classList.add("open");
+}
 if(navToggle){
   navToggle.addEventListener("click", function(){
-    this.classList.toggle("open");
-    navOverlay.classList.toggle("open");
-    document.body.classList.toggle("nav-open");
+    navOverlay.classList.contains("open") ? closeNav() : openNav();
   });
+}
+if(navOverlayX){
+  navOverlayX.addEventListener("click", closeNav);
+}
+if(navOverlay){
   navOverlay.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navToggle.classList.remove("open");
-      navOverlay.classList.remove("open");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeNav);
   });
 }
 const observer = new IntersectionObserver((entries) => {
