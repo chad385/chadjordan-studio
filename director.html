@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>The Director — Chad Jordan · Studio</title>
+<meta name="description" content="A single-character visual narrative. A fictional creative director in a brutalist studio — built entirely with AI image direction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
+<style>
+.cs-hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.cs-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.45) saturate(0.88);}
+.cs-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,46,0.97) 0%,rgba(13,27,46,0.2) 50%,transparent 100%);}
+.cs-hero-content{position:relative;z-index:1;padding:0 3rem 4rem;}
+.cs-back{position:absolute;top:6rem;left:3rem;z-index:2;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.6);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;}
+.cs-back:hover{color:var(--gold);}
+.cs-back::before{content:'←';}
+.cs-category{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.cs-category::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
+.cs-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:0.5rem;}
+.cs-title em{font-style:italic;color:var(--gold);}
+.cs-subtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(237,232,220,0.4);}
+
+/* BRIEF */
+.cs-brief{display:grid;grid-template-columns:1fr 1fr;gap:5rem;padding:5rem 3rem;border-bottom:0.5px solid var(--gold-rule);}
+.cs-brief-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;}
+.cs-brief-left h2 em{font-style:italic;color:var(--gold);}
+.cs-brief-left p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:1rem;}
+.cs-brief-right{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;justify-content:center;}
+.cs-meta-row{display:flex;flex-direction:column;gap:0.3rem;padding:1.25rem 0;border-bottom:0.5px solid var(--gold-rule);}
+.cs-meta-row:first-child{padding-top:0;}
+.cs-meta-row:last-child{border-bottom:none;padding-bottom:0;}
+.cs-meta-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.45);}
+.cs-meta-value{font-size:14px;color:var(--white-dim);}
+
+/* IMAGE BLOCKS */
+.cs-image-full{width:100%;display:block;border-top:0.5px solid var(--gold-rule);}
+.cs-image-full img{width:100%;display:block;filter:brightness(0.9) saturate(0.95);transition:filter 0.4s;}
+.cs-image-full img:hover{filter:brightness(1) saturate(1);}
+.cs-image-caption{padding:1.25rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:flex;justify-content:space-between;align-items:center;}
+.cs-caption-text{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,169,110,0.4);}
+.cs-caption-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:rgba(237,232,220,0.2);}
+
+.cs-image-pair{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--gold-rule);}
+.cs-image-pair img{width:100%;display:block;border-right:0.5px solid var(--gold-rule);filter:brightness(0.88) saturate(0.9);transition:filter 0.4s;}
+.cs-image-pair img:last-child{border-right:none;}
+.cs-image-pair img:hover{filter:brightness(1) saturate(1);}
+
+/* Asymmetric wide+portrait */
+.cs-asym{display:grid;grid-template-columns:3fr 2fr;border-top:0.5px solid var(--gold-rule);}
+.cs-asym img{width:100%;height:100%;object-fit:cover;display:block;border-right:0.5px solid var(--gold-rule);filter:brightness(0.88) saturate(0.9);transition:filter 0.4s;}
+.cs-asym img:last-child{border-right:none;}
+.cs-asym img:hover{filter:brightness(1) saturate(1);}
+
+/* Text between images */
+.cs-interlude{padding:5rem 3rem;border-top:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:center;background:var(--navy-mid);}
+.cs-interlude-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:center;}
+.cs-interlude-text{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:400;line-height:1.6;color:var(--white);font-style:italic;}
+
+/* Three column detail grid */
+.cs-detail-3{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--gold-rule);}
+.cs-detail-3 img{width:100%;display:block;border-right:0.5px solid var(--gold-rule);filter:brightness(0.88) saturate(0.9);transition:filter 0.4s;object-fit:cover;}
+.cs-detail-3 img:last-child{border-right:none;}
+.cs-detail-3 img:hover{filter:brightness(1) saturate(1);}
+
+/* INSIGHT */
+.cs-insight{padding:6rem 3rem;border-top:0.5px solid var(--gold-rule);border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:center;background:var(--navy-mid);}
+.cs-insight-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.4);border-right:0.5px solid var(--gold-rule);padding-right:4rem;align-self:stretch;display:flex;align-items:center;}
+.cs-insight-text{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,2rem);font-weight:400;line-height:1.5;color:var(--white);font-style:italic;}
+
+.cs-next{display:block;text-decoration:none;position:relative;overflow:hidden;aspect-ratio:21/6;border-top:0.5px solid var(--gold-rule);}
+.cs-next-bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:brightness(0.3) saturate(0.7);transition:filter 0.6s,transform 0.7s;}
+.cs-next:hover .cs-next-bg{filter:brightness(0.45) saturate(0.9);transform:scale(1.03);}
+.cs-next-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:3rem;background:linear-gradient(to right,rgba(13,27,46,0.8) 0%,transparent 60%);}
+.cs-next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.6);margin-bottom:0.75rem;}
+.cs-next-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:400;color:var(--white);line-height:1.15;}
+
+@media(max-width:900px){
+  .cs-brief{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .cs-brief-right{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2rem;}
+  .cs-image-pair{grid-template-columns:1fr;}
+  .cs-image-pair img{border-right:none;border-bottom:0.5px solid var(--gold-rule);}
+  .cs-image-pair img:last-child{border-bottom:none;}
+  .cs-asym{grid-template-columns:1fr;}
+  .cs-asym img{border-right:none;border-bottom:0.5px solid var(--gold-rule);height:300px;}
+  .cs-asym img:last-child{border-bottom:none;}
+  .cs-detail-3{grid-template-columns:1fr;}
+  .cs-detail-3 img{border-right:none;border-bottom:0.5px solid var(--gold-rule);}
+  .cs-detail-3 img:last-child{border-bottom:none;}
+  .cs-interlude{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem;}
+  .cs-interlude-label{border-right:none;padding-right:0;align-self:auto;}
+  .cs-insight{grid-template-columns:1fr;gap:1.5rem;padding:4rem 1.5rem;}
+  .cs-insight-label{border-right:none;padding-right:0;align-self:auto;}
+  .cs-hero-content{padding:0 1.5rem 3rem;}
+  .cs-back{left:1.5rem;}
+  .cs-image-caption{padding:1rem 1.5rem;}
+
+  @media(max-width:900px){
+    .nav-toggle{display:flex !important;}
+    .nav-links{display:none !important;position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;background:#0d1b2e !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:3rem !important;z-index:180 !important;list-style:none !important;margin:0 !important;padding:0 !important;}
+    .nav-links.open{display:flex !important;}
+    .nav-links a{font-family:'Playfair Display',serif !important;font-size:2rem !important;color:#ede8dc !important;text-decoration:none !important;}
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="csgpro.html">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
+  <ul class="nav-overlay-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="csgpro.html">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO — the monumental wide establishing shot -->
+<section class="cs-hero">
+  <a href="index.html#work" class="cs-back">All Work</a>
+  <img class="cs-hero-img" src="images/director/bs_wide_02.png" alt="The Director — vast brutalist studio interior">
+  <div class="cs-hero-overlay"></div>
+  <div class="cs-hero-content">
+    <div class="cs-category">09 — Visual Narrative</div>
+    <h1 class="cs-title">The Director<br><em>A Character Study.</em></h1>
+    <div class="cs-subtitle">Single-Character Narrative &nbsp;·&nbsp; Brutalist World-Building &nbsp;·&nbsp; AI Visual Direction</div>
+  </div>
+</section>
+
+<!-- BRIEF -->
+<section class="cs-brief reveal">
+  <div class="cs-brief-left">
+    <h2>No client. No brief.<br><em>Just a question.</em></h2>
+    <p>What does a creative director look like when you let the image do the work? Not a headshot, not a portfolio piece — a character. Someone with history on his face and decisions in his posture. Someone working in a space that reflects the weight of what he does.</p>
+    <p>This is a personal project in the purest sense. The brief was a single constraint: build a believable human being inside a believable world, using only language and intent. No reference photography. No location scout. Fourteen frames. One character. One room. One story.</p>
+    <p>The brutalist studio came first — the architecture of serious work. Then the man. Then the details that prove he's been here a long time: the worn concrete desk, the cinema lenses arranged like tools not trophies, the storyboards pinned to raw concrete walls, the coffee that's gone cold.</p>
+  </div>
+  <div class="cs-brief-right">
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Project Type</span>
+      <span class="cs-meta-value">Single-Character Visual Narrative</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Format</span>
+      <span class="cs-meta-value">Personal / Spec</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Frames</span>
+      <span class="cs-meta-value">14 images</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Tools</span>
+      <span class="cs-meta-value">Gemini Flash · Adobe Firefly · CSG PRO</span>
+    </div>
+    <div class="cs-meta-row">
+      <span class="cs-meta-label">Year</span>
+      <span class="cs-meta-value">2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 1: THE WORLD — wide establishing shots -->
+
+<!-- Shot 1: The cathedral — most dramatic wide -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_wide_01.png" alt="Ultra wide — brutalist design studio interior, single figure at desk">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Establishing — the studio. A space built for concentration, not comfort.</span>
+  <span class="cs-caption-num">01 / 14</span>
+</div>
+
+<!-- Shot 2+3: Two wide angles showing scale and atmosphere -->
+<div class="cs-image-pair reveal">
+  <img src="images/director/bs_wide_atmo.png" alt="Wide atmospheric — brutalist studio floor, towering concrete columns">
+  <img src="images/director/bs_06.png" alt="Medium wide — designer at desk, storyboard wall behind">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The scale of the space is the first argument. One man. All this room.</span>
+  <span class="cs-caption-num">02–03 / 14</span>
+</div>
+
+<!-- INTERLUDE 1 -->
+<div class="cs-interlude reveal">
+  <div class="cs-interlude-label">World-Building</div>
+  <p class="cs-interlude-text">"The studio doesn't exist. That's what makes it work — it's every serious studio distilled into its purest form. Brutalist concrete, natural light from above, the silence of a space designed to hold one person's concentration."</p>
+</div>
+
+<!-- ACT 2: THE MAN -->
+
+<!-- Shot 4: Night shot — most cinematic single figure -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_night.png" alt="Night — single lamp, designer at work, vast dark studio">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Late. Still here. The lamp is the whole world.</span>
+  <span class="cs-caption-num">04 / 14</span>
+</div>
+
+<!-- Shot 5+6: Profile and the wall -->
+<div class="cs-asym reveal">
+  <img src="images/director/bs_04.png" alt="Designer at desk — storyboards, lenses, working" style="max-height:580px;">
+  <img src="images/director/bs_designer_profile.png" alt="Profile shot — designer studying storyboards, brass lamp" style="max-height:580px;">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The work and the man. Each one explains the other.</span>
+  <span class="cs-caption-num">05–06 / 14</span>
+</div>
+
+<!-- Shot 7: Standing at the wall -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_07.png" alt="Designer standing at storyboard wall — thinking, back to camera">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The moment before the decision. He's been looking at this wall for an hour.</span>
+  <span class="cs-caption-num">07 / 14</span>
+</div>
+
+<!-- Shot 8: Over the shoulder -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_over_shoulder.png" alt="Over shoulder — designer studying pinned storyboards on concrete wall">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Over the shoulder — inside his eyeline. Now you're reading what he's reading.</span>
+  <span class="cs-caption-num">08 / 14</span>
+</div>
+
+<!-- INTERLUDE 2 -->
+<div class="cs-interlude reveal">
+  <div class="cs-interlude-label">Character</div>
+  <p class="cs-interlude-text">"He's in his early fifties. He has a matte black wedding band — you only notice it in the hands shot. He keeps cinema lenses on his desk alongside his cameras. He drinks coffee and doesn't finish it. He's been doing this for thirty years and he still stays late."</p>
+</div>
+
+<!-- ACT 3: THE WORK — close details -->
+
+<!-- Shot 9+10: Storyboard wall close + worktable with lenses -->
+<div class="cs-image-pair reveal">
+  <img src="images/director/bs_storyboard_wall.png" alt="Storyboard wall close — photographs and sketches pinned to concrete">
+  <img src="images/director/bs_worktable.png" alt="Worktable — cinema lenses in foreground, designer drawing behind">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The wall and the table. The thinking and the tools.</span>
+  <span class="cs-caption-num">09–10 / 14</span>
+</div>
+
+<!-- Shot 11: Coffee + studio behind -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_coffee.png" alt="Coffee mug on worn concrete desk — designer working in background">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The cold coffee. The detail that earns the rest of the story.</span>
+  <span class="cs-caption-num">11 / 14</span>
+</div>
+
+<!-- Shot 12+13+14: Three macro details — hands, pencil, wedding band -->
+<div class="cs-detail-3 reveal">
+  <img src="images/director/bs_05.png" alt="Designer at desk — medium shot, storyboards spread out" style="max-height:460px;object-fit:cover;object-position:center;">
+  <img src="images/director/bs_hands_drawing.png" alt="Hands drawing — storyboard annotation, Leica camera beside" style="max-height:460px;object-fit:cover;">
+  <img src="images/director/bs_wedding_band.png" alt="Matte black wedding band — hands working on storyboard" style="max-height:460px;object-fit:cover;">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">The hands. The ring. The storyboard that reads "CU — Track & Dolly — Focus Pull to Cup."</span>
+  <span class="cs-caption-num">12–14 / 14</span>
+</div>
+
+<!-- Pencil macro — closing detail -->
+<div class="cs-image-full reveal">
+  <img src="images/director/bs_pencil_macro.png" alt="Extreme close-up — pencil sketching composition lines on storyboard">
+</div>
+<div class="cs-image-caption">
+  <span class="cs-caption-text">Macro — the pencil tip on the storyboard. Shot 12B — Wide Int.</span>
+  <span class="cs-caption-num">Detail / 14</span>
+</div>
+
+<!-- INSIGHT -->
+<section class="cs-insight reveal">
+  <div class="cs-insight-label">The Proof</div>
+  <p class="cs-insight-text">
+    "A character is just a set of decisions — where he works, what he keeps on his desk, whether he wears a ring. Make the right decisions and the model does the rest. The studio doesn't exist. The man does."
+  </p>
+</section>
+
+<!-- NEXT PROJECT -->
+<a href="index.html#work" class="cs-next">
+  <img class="cs-next-bg" src="images/hero.png" alt="Back to all work">
+  <div class="cs-next-overlay">
+    <div class="cs-next-label">Back to</div>
+    <div class="cs-next-title">All Work</div>
+  </div>
+</a>
+
+<footer>
+  <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
+  <ul class="footer-links">
+    <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
+    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
+    <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
+    <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+const navToggle = document.getElementById("nav-toggle");
+const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){navToggle.classList.remove("open");navOverlay.classList.remove("open");}
+function openNav(){navToggle.classList.add("open");navOverlay.classList.add("open");}
+if(navToggle){navToggle.addEventListener("click",function(){navOverlay.classList.contains("open")?closeNav():openNav();});}
+if(navOverlayX){navOverlayX.addEventListener("click",closeNav);}
+if(navOverlay){navOverlay.querySelectorAll("a").forEach(function(link){link.addEventListener("click",closeNav);});}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
