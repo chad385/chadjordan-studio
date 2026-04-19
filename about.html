@@ -8,7 +8,7 @@
 <meta name="description" content="Chad Jordan — Creative producer for founders and CEOs. The R/D Framework: Resonance, Dissonance, and the gap between what a brand is and how it shows up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <style>
 
 .ab-hero{padding:10rem 3rem 6rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;}
@@ -71,10 +71,12 @@
 .ab-practice-link{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,169,110,0.6);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
 .ab-practice-link:hover{color:var(--gold);border-color:var(--gold);}
 
-.ab-contact{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.ab-contact{padding:6rem 3rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr auto 1fr;gap:5rem;align-items:center;}
 .ab-contact h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1.5rem;}
 .ab-contact h2 em{font-style:italic;color:var(--gold);}
 .ab-contact p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:2.5rem;}
+.ab-portrait{width:240px;flex-shrink:0;}
+.ab-portrait img{width:100%;display:block;filter:brightness(0.9) saturate(0.8);border:0.5px solid var(--gold-rule);}
 .ab-contact-links{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;}
 .ab-contact-row{display:flex;flex-direction:column;gap:0.3rem;padding:1.25rem 0;border-bottom:0.5px solid var(--gold-rule);}
 .ab-contact-row:first-child{padding-top:0;}
@@ -105,6 +107,7 @@
   .ab-practice-item{border-right:none;padding-right:0;margin-right:0;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:0.5px solid var(--gold-rule);}
   .ab-practice-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
   .ab-contact{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .ab-portrait{width:160px;margin:0 auto;}
   .ab-contact-links{border-left:none;padding-left:0;border-top:0.5px solid var(--gold-rule);padding-top:2rem;}
 }
 
@@ -126,6 +129,7 @@
 </nav>
 
 <div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
   <ul class="nav-overlay-links">
     <li><a href="index.html#work">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -294,6 +298,9 @@
     <p>The founders who are ready will self-select. They feel the resonance. If you're reading this and something clicked — that's the signal.</p>
     <a href="mailto:chad@justbejack.com" class="cta-link">Get in touch</a>
   </div>
+  <div class="ab-portrait">
+    <img src="images/chad_portrait.png" alt="Chad Jordan — Creative Director">
+  </div>
   <div class="ab-contact-links">
     <div class="ab-contact-row">
       <span class="ab-contact-row-label">Email</span>
@@ -327,18 +334,26 @@
 <script>
 const navToggle = document.getElementById("nav-toggle");
 const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){
+  navToggle.classList.remove("open");
+  navOverlay.classList.remove("open");
+}
+function openNav(){
+  navToggle.classList.add("open");
+  navOverlay.classList.add("open");
+}
 if(navToggle){
   navToggle.addEventListener("click", function(){
-    this.classList.toggle("open");
-    navOverlay.classList.toggle("open");
-    document.body.classList.toggle("nav-open");
+    navOverlay.classList.contains("open") ? closeNav() : openNav();
   });
+}
+if(navOverlayX){
+  navOverlayX.addEventListener("click", closeNav);
+}
+if(navOverlay){
   navOverlay.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navToggle.classList.remove("open");
-      navOverlay.classList.remove("open");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeNav);
   });
 }
 const observer = new IntersectionObserver((entries) => {
