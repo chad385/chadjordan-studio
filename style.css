@@ -309,11 +309,11 @@ nav{
   object-fit:cover;
   position:absolute;
   inset:0;
-  filter:brightness(0.45) saturate(0.88);
+  filter:brightness(0.55) saturate(0.95);
   transition:filter 0.6s ease, transform 0.7s ease;
 }
 .case-item:hover .case-bg{
-  filter:brightness(0.55) saturate(1);
+  filter:brightness(0.7) saturate(1);
   transform:scale(1.04);
 }
 .case-overlay{
@@ -323,7 +323,7 @@ nav{
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  background:linear-gradient(to top, rgba(13,27,46,0.95) 0%, rgba(13,27,46,0.15) 55%, transparent 100%);
+  background:linear-gradient(to top, rgba(13,27,46,0.88) 0%, rgba(13,27,46,0.08) 50%, transparent 100%);
 }
 .case-number{
   font-family:'DM Mono',monospace;
