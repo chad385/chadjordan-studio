@@ -520,7 +520,7 @@ footer{
 .reveal.visible{opacity:1;transform:none;}
 
 
-/* Italic accents stay as Playfair for contrast */
+
 .hero-headline em,
 .cs-title em,
 .ab-hero h1 em,
@@ -532,7 +532,7 @@ footer{
 .rg-insight-text,
 .rg-pull-quote p,
 .pull-quote p{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
 }
 
 /* RESPONSIVE */
