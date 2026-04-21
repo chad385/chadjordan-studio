@@ -7,8 +7,8 @@
 <title>Porsche 928 — Chad Jordan · Studio</title>
 <meta name="description" content="The Forgotten Grand Tourer. A personal editorial exploration — four shots, one car, the Porsche that history got wrong.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Playfair+Display:ital,wght@1,400;1,600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=9">
 <style>
 .cs-hero{position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
 .cs-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.35) saturate(0.7);}
@@ -19,7 +19,7 @@
 .cs-back::before{content:'←';}
 .cs-category{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
 .cs-category::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
-.cs-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:0.5rem;}
+.cs-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:0.5rem;}
 .cs-title em{font-style:italic;color:var(--gold);}
 .cs-subtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(237,232,220,0.4);}
 
@@ -31,7 +31,7 @@
   padding:5rem 3rem;
   border-bottom:0.5px solid var(--gold-rule);
 }
-.cs-brief-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;}
+.cs-brief-left h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:400;color:var(--white);line-height:1.3;margin-bottom:1.5rem;}
 .cs-brief-left h2 em{font-style:italic;color:var(--gold);}
 .cs-brief-left p{font-size:15px;line-height:1.85;color:var(--white-dim);margin-bottom:1rem;}
 .cs-brief-right{display:flex;flex-direction:column;gap:0;border-left:0.5px solid var(--gold-rule);padding-left:4rem;justify-content:center;}
@@ -103,7 +103,7 @@
 .cs-end:hover .cs-end-bg{filter:brightness(0.4) saturate(0.8);transform:scale(1.03);}
 .cs-end-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .cs-end-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.6);margin-bottom:0.75rem;}
-.cs-end-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:400;color:var(--white);line-height:1.15;}
+.cs-end-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:400;color:var(--white);line-height:1.15;}
 
 @media(max-width:900px){
   .cs-hero-content{padding:0 1.5rem 3rem;}
@@ -135,6 +135,7 @@
 </nav>
 
 <div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
   <ul class="nav-overlay-links">
     <li><a href="index.html#work">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -236,12 +237,12 @@
   </p>
 </section>
 
-<!-- END — BACK TO ALL WORK -->
-<a href="index.html#work" class="cs-end">
-  <img class="cs-end-bg" src="images/hero.png" alt="Chad Jordan — Hong Kong night market">
+<!-- NEXT — AI RANGE GALLERY -->
+<a href="gallery.html" class="cs-end">
+  <img class="cs-end-bg" src="images/gallery/gal_fashion_energy.png" alt="AI Creative Range gallery">
   <div class="cs-end-overlay">
-    <div class="cs-end-label">That's the work</div>
-    <div class="cs-end-title">View All Projects</div>
+    <div class="cs-end-label">Next Project</div>
+    <div class="cs-end-title">AI Creative Range<br>What the System Can Do</div>
   </div>
 </a>
 
@@ -249,7 +250,6 @@
   <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
   <ul class="footer-links">
     <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
-    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
     <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
     <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
   </ul>
@@ -258,18 +258,26 @@
 <script>
 const navToggle = document.getElementById("nav-toggle");
 const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){
+  navToggle.classList.remove("open");
+  navOverlay.classList.remove("open");
+}
+function openNav(){
+  navToggle.classList.add("open");
+  navOverlay.classList.add("open");
+}
 if(navToggle){
   navToggle.addEventListener("click", function(){
-    this.classList.toggle("open");
-    navOverlay.classList.toggle("open");
-    document.body.classList.toggle("nav-open");
+    navOverlay.classList.contains("open") ? closeNav() : openNav();
   });
+}
+if(navOverlayX){
+  navOverlayX.addEventListener("click", closeNav);
+}
+if(navOverlay){
   navOverlay.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navToggle.classList.remove("open");
-      navOverlay.classList.remove("open");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeNav);
   });
 }
 const observer = new IntersectionObserver((entries) => {

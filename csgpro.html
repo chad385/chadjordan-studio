@@ -7,14 +7,14 @@
 <title>CSG PRO — Chad Jordan · Studio</title>
 <meta name="description" content="CSG PRO — A 7-layer AI visual direction system for creative directors who want repeatable, intentional image generation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Playfair+Display:ital,wght@1,400;1,600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=9">
 <style>
 
 .csg-hero{padding:10rem 3rem 6rem;border-bottom:0.5px solid var(--gold-rule);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;}
 .csg-hero-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;}
 .csg-hero-label::before{content:'';display:inline-block;width:28px;height:0.5px;background:var(--gold);}
-.csg-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.5rem);font-weight:400;line-height:1.08;color:var(--white);}
+.csg-hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2.6rem,4.5vw,4.5rem);font-weight:400;line-height:1.08;color:var(--white);}
 .csg-hero h1 em{font-style:italic;color:var(--gold);}
 .csg-hero-right{border-left:0.5px solid var(--gold-rule);padding-left:5rem;}
 .csg-hero-body{font-size:15px;line-height:1.9;color:var(--white-dim);margin-bottom:1.5rem;}
@@ -53,7 +53,7 @@
 .csg-how-item{padding:2.5rem;border-right:0.5px solid var(--gold-rule);}
 .csg-how-item:last-child{border-right:none;}
 .csg-how-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.75rem;}
-.csg-how-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:0.75rem;}
+.csg-how-title{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:0.75rem;}
 .csg-how-body{font-size:13px;line-height:1.75;color:var(--white-dim);}
 
 /* WHO IT'S FOR */
@@ -69,7 +69,7 @@
 
 /* CTA */
 .csg-cta{padding:7rem 3rem;border-bottom:0.5px solid var(--gold-rule);text-align:center;}
-.csg-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:1.5rem;}
+.csg-cta h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:1.5rem;}
 .csg-cta h2 em{font-style:italic;color:var(--gold);}
 .csg-cta p{font-size:15px;line-height:1.85;color:var(--white-dim);max-width:560px;margin:0 auto 3rem;}
 .csg-cta-btn{display:inline-flex;align-items:center;gap:1rem;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);background:var(--gold);text-decoration:none;padding:1.1rem 2.5rem;transition:background 0.25s,color 0.25s;}
@@ -114,6 +114,7 @@
 </nav>
 
 <div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
   <ul class="nav-overlay-links">
     <li><a href="index.html#work">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -261,7 +262,6 @@
   <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
   <ul class="footer-links">
     <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
-    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
     <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
     <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
   </ul>
@@ -270,18 +270,26 @@
 <script>
 const navToggle = document.getElementById("nav-toggle");
 const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){
+  navToggle.classList.remove("open");
+  navOverlay.classList.remove("open");
+}
+function openNav(){
+  navToggle.classList.add("open");
+  navOverlay.classList.add("open");
+}
 if(navToggle){
   navToggle.addEventListener("click", function(){
-    this.classList.toggle("open");
-    navOverlay.classList.toggle("open");
-    document.body.classList.toggle("nav-open");
+    navOverlay.classList.contains("open") ? closeNav() : openNav();
   });
+}
+if(navOverlayX){
+  navOverlayX.addEventListener("click", closeNav);
+}
+if(navOverlay){
   navOverlay.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navToggle.classList.remove("open");
-      navOverlay.classList.remove("open");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeNav);
   });
 }
 const observer = new IntersectionObserver((entries) => {

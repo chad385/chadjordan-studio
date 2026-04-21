@@ -7,8 +7,8 @@
 <title>NASA × Ralph Lauren — Chad Jordan · Studio</title>
 <meta name="description" content="A complete fashion editorial at Kennedy Space Center. No location permit. No casting director. No crew.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Playfair+Display:ital,wght@1,400;1,600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=9">
 <style>
 /* Case study specific styles */
 .cs-hero{
@@ -75,7 +75,7 @@
   background:var(--gold);
 }
 .cs-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(2.5rem,5vw,5rem);
   font-weight:400;
   line-height:1.05;
@@ -100,7 +100,7 @@
   border-bottom:0.5px solid var(--gold-rule);
 }
 .cs-brief-left h2{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(1.4rem,2vw,1.9rem);
   font-weight:400;
   color:var(--white);
@@ -185,7 +185,7 @@
   margin-bottom:0.75rem;
 }
 .cs-step-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:1.1rem;
   font-weight:400;
   color:var(--white);
@@ -207,7 +207,7 @@
 .cs-image-full img{
   width:100%;
   display:block;
-  filter:brightness(0.92) saturate(0.95);
+  filter:brightness(0.97) saturate(0.97);
   transition:filter 0.4s;
 }
 .cs-image-full img:hover{filter:brightness(1) saturate(1);}
@@ -243,7 +243,7 @@
   width:100%;
   display:block;
   border-right:0.5px solid var(--gold-rule);
-  filter:brightness(0.88) saturate(0.9);
+  filter:brightness(0.95) saturate(0.95);
   transition:filter 0.4s;
 }
 .cs-image-pair img:last-child{border-right:none;}
@@ -321,7 +321,7 @@
   margin-bottom:0.75rem;
 }
 .cs-next-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(1.5rem,2.5vw,2.5rem);
   font-weight:400;
   color:var(--white);
@@ -362,6 +362,7 @@
 </nav>
 
 <div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
   <ul class="nav-overlay-links">
     <li><a href="index.html#work">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -513,7 +514,6 @@
   <span class="footer-name">Chad Jordan <span>·</span> Studio</span>
   <ul class="footer-links">
     <li><a href="https://csgpro.app" target="_blank">csgpro.app</a></li>
-    <li><a href="https://justbejack.com" target="_blank">justbejack.com</a></li>
     <li><a href="https://runtheprotocol.com" target="_blank">runtheprotocol.com</a></li>
     <li><a href="https://linkedin.com/in/chad-jordan-388ab624" target="_blank">LinkedIn</a></li>
   </ul>
@@ -522,18 +522,26 @@
 <script>
 const navToggle = document.getElementById("nav-toggle");
 const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){
+  navToggle.classList.remove("open");
+  navOverlay.classList.remove("open");
+}
+function openNav(){
+  navToggle.classList.add("open");
+  navOverlay.classList.add("open");
+}
 if(navToggle){
   navToggle.addEventListener("click", function(){
-    this.classList.toggle("open");
-    navOverlay.classList.toggle("open");
-    document.body.classList.toggle("nav-open");
+    navOverlay.classList.contains("open") ? closeNav() : openNav();
   });
+}
+if(navOverlayX){
+  navOverlayX.addEventListener("click", closeNav);
+}
+if(navOverlay){
   navOverlay.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navToggle.classList.remove("open");
-      navOverlay.classList.remove("open");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeNav);
   });
 }
 const observer = new IntersectionObserver((entries) => {
