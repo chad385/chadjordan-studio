@@ -77,7 +77,7 @@ nav{
   padding:0;margin:0;
 }
 .nav-overlay-links a{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:2.2rem;
   font-weight:400;
   color:var(--white);
@@ -187,7 +187,7 @@ nav{
   background:var(--gold);
 }
 .hero-headline{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(2.6rem,4.5vw,4.5rem);
   font-weight:400;
   line-height:1.1;
@@ -333,7 +333,7 @@ nav{
   margin-bottom:0.6rem;
 }
 .case-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(1.2rem,1.8vw,1.8rem);
   font-weight:400;
   color:var(--white);
@@ -385,7 +385,7 @@ nav{
   align-items:center;
 }
 .pov-text{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(1.5rem,2.2vw,2.1rem);
   font-weight:400;
   line-height:1.55;
@@ -403,7 +403,7 @@ nav{
   background:var(--navy-mid);
 }
 .about-left h2{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(1.8rem,2.5vw,2.5rem);
   font-weight:400;
   color:var(--white);
@@ -444,7 +444,7 @@ nav{
 }
 .award-item{background:var(--navy-mid);padding:1.75rem;}
 .award-num{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:2.8rem;
   color:var(--gold);
   line-height:1;
@@ -490,7 +490,7 @@ footer{
   background:#0a1525;
 }
 .footer-name{
-  font-family:'Playfair Display',serif;
+  font-family:'Bricolage Grotesque',sans-serif;
   font-size:1rem;
   color:rgba(237,232,220,0.3);
 }
@@ -518,6 +518,22 @@ footer{
   transition:opacity 0.75s ease,transform 0.75s ease;
 }
 .reveal.visible{opacity:1;transform:none;}
+
+
+/* Italic accents stay as Playfair for contrast */
+.hero-headline em,
+.cs-title em,
+.ab-hero h1 em,
+.ab-producer-text,
+.ab-rd-text,
+.cs-insight-text,
+.cs-brief-left h2 em,
+.cs-detail-headline,
+.rg-insight-text,
+.rg-pull-quote p,
+.pull-quote p{
+  font-family:'Playfair Display',serif;
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
