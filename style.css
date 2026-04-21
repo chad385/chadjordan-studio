@@ -357,10 +357,20 @@ nav{
   font-size:9px;
   letter-spacing:0.12em;
   text-transform:uppercase;
-  color:var(--gold);
-  border:0.5px solid rgba(201,169,110,0.45);
   padding:5px 12px;
-  background:rgba(13,27,46,0.75);
+  background:rgba(13,27,46,0.82);
+}
+.case-tag--commercial{
+  color:var(--gold);
+  border:0.5px solid rgba(201,169,110,0.55);
+}
+.case-tag--spec{
+  color:rgba(237,232,220,0.6);
+  border:0.5px solid rgba(237,232,220,0.2);
+}
+.case-tag--exploration{
+  color:rgba(201,169,110,0.5);
+  border:0.5px solid rgba(201,169,110,0.18);
 }
 
 /* POV */
