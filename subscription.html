@@ -99,7 +99,7 @@
     padding-top: 7rem;
     min-height: 92vh;
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1.1fr 1fr;
     align-items: stretch;
     border-bottom: 0.5px solid var(--gold-rule);
   }
@@ -116,13 +116,13 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    min-height: 60vh;
+    min-height: 70vh;
   }
   .hero-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(13,27,46,0.4) 0%, rgba(13,27,46,0) 35%);
+    background: linear-gradient(90deg, rgba(13,27,46,0.45) 0%, rgba(13,27,46,0) 25%);
   }
   .hero-cta {
     margin-top: 3rem;
@@ -235,14 +235,14 @@
   .work-label .brand { color: var(--white); }
   .work-label .meta { color: var(--white-dim); }
 
-  /* Tonewood: 3 cinematic landscape tiles */
+  /* Tonewood: 4 cinematic landscape tiles */
   .strip-cinematic {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
   }
   .strip-cinematic .tile {
-    aspect-ratio: 4/3;
+    aspect-ratio: 1/1;
     background-size: cover;
     background-position: center;
     background-color: var(--navy-mid);
@@ -479,7 +479,7 @@
     .what-you-get .grid { grid-template-columns: 1fr; gap: 3rem; }
     .how-grid { grid-template-columns: 1fr; gap: 2rem; }
     .work-strip { grid-template-columns: repeat(2, 1fr); }
-    .strip-cinematic { grid-template-columns: 1fr; }
+    .strip-cinematic { grid-template-columns: repeat(2, 1fr); }
     .strip-grids { grid-template-columns: 1fr; gap: 0.75rem; }
     .work-block + .work-block { margin-top: 4rem; }
     .work-label { font-size: 0.65rem; }
@@ -531,7 +531,7 @@
     </p>
     <a href="#how-it-works" class="hero-cta">See how it works →</a>
   </div>
-  <div class="hero-image" aria-label="Tonewood Brewing on Girard Avenue, Fishtown, Philadelphia"></div>
+  <div class="hero-image" aria-label="Tonewood Brewing — Oaklyn, New Jersey"></div>
 </section>
 
 <!-- ============ UNFAIR ADVANTAGE FRAME ============ -->
@@ -617,7 +617,8 @@
       <div class="strip-cinematic">
         <div class="tile" style="background-image: url('images/tonewood/tw_rooftop.png');"></div>
         <div class="tile" style="background-image: url('images/tonewood/tw_square.png');"></div>
-        <div class="tile" style="background-image: url('images/tonewood/tw_artmuseum.png');"></div>
+        <div class="tile" style="background-image: url('images/tonewood/tw_girard.png');"></div>
+        <div class="tile" style="background-image: url('images/tonewood/tw_grid9.png');"></div>
       </div>
     </div>
 
