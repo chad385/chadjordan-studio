@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Chad Jordan Studio</title>
+<link rel="stylesheet" href="style.css?v=10">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -18,11 +19,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,27,46,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--gold-dim);}
-.nav-wordmark{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--white-dim);text-transform:uppercase;text-decoration:none;}
-.nav-wordmark span{color:var(--gold);}
-.nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-dim);text-decoration:none;border:0.5px solid var(--gold-dim);padding:6px 14px;transition:color 0.2s,border-color 0.2s;}
-.nav-back:hover{color:var(--gold);border-color:var(--gold);}
 
 /* HERO */
 .hero{
@@ -268,8 +264,7 @@ footer{padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 @media(max-width:768px){
-  nav{padding:0 1.25rem;}
-  .hero{padding:0 1.25rem 4rem;}
+    .hero{padding:0 1.25rem 4rem;}
   .hero-ghost{display:none;}
   section{padding:4rem 1.25rem;}
   .story-section,.moment-inner,.offer-inner{grid-template-columns:1fr;gap:3rem;}
@@ -281,9 +276,29 @@ footer{padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space
 <body>
 
 <nav>
-  <a class="nav-wordmark" href="index.html">Chad Jordan <span>Studio</span></a>
-  <a class="nav-back" href="index.html">← Back</a>
+  <a href="index.html" class="logo">Chad Jordan <span>·</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="third.html">THIRD</a></li>
+    <li><a href="csgpro.html">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-overlay" id="nav-overlay">
+  <button class="nav-overlay-x" id="nav-overlay-x" aria-label="Close menu">✕</button>
+  <ul class="nav-overlay-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="third.html">THIRD</a></li>
+    <li><a href="csgpro.html">CSG Pro</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
+  </ul>
+</div>
 
 <section class="hero">
   <div class="hero-ghost">CJ</div>
@@ -446,6 +461,16 @@ const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
 },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+<script>
+const navToggle = document.getElementById("nav-toggle");
+const navOverlay = document.getElementById("nav-overlay");
+const navOverlayX = document.getElementById("nav-overlay-x");
+function closeNav(){navToggle.classList.remove("open");navOverlay.classList.remove("open");}
+function openNav(){navToggle.classList.add("open");navOverlay.classList.add("open");}
+if(navToggle){navToggle.addEventListener("click",function(){navOverlay.classList.contains("open")?closeNav():openNav();});}
+if(navOverlayX){navOverlayX.addEventListener("click",closeNav);}
+if(navOverlay){navOverlay.querySelectorAll("a").forEach(function(link){link.addEventListener("click",closeNav);});}
 </script>
 </body>
 </html>
