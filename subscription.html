@@ -253,22 +253,58 @@
   }
 
   /* ---------- RECENT WORK ---------- */
-  .work-strip {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.5rem;
-    margin-top: 3rem;
+  .work-block { margin-top: 4rem; }
+  .work-block + .work-block { margin-top: 5rem; }
+
+  .work-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 0.5px solid var(--gold-rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
   }
-  .work-strip .tile {
-    aspect-ratio: 4/5;
+  .work-label .brand { color: var(--white); }
+  .work-label .meta { color: var(--white-dim); }
+
+  /* Tonewood: 3 cinematic landscape tiles */
+  .strip-cinematic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .strip-cinematic .tile {
+    aspect-ratio: 4/3;
     background-size: cover;
     background-position: center;
     background-color: var(--navy-mid);
     transition: filter 0.4s ease, transform 0.4s ease;
   }
-  .work-strip .tile:hover {
+  .strip-cinematic .tile:hover {
     filter: brightness(1.1);
     transform: scale(1.02);
+  }
+
+  /* Helix-DB: 3 grid tiles, large enough that the 9-up reads */
+  .strip-grids {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .strip-grids .tile {
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--navy-mid);
+    transition: filter 0.4s ease, transform 0.4s ease;
+  }
+  .strip-grids .tile:hover {
+    filter: brightness(1.08);
+    transform: scale(1.01);
   }
 
   /* ---------- PRICING ---------- */
@@ -482,6 +518,10 @@
     .what-you-get .grid { grid-template-columns: 1fr; gap: 3rem; }
     .how-grid { grid-template-columns: 1fr; gap: 2rem; }
     .work-strip { grid-template-columns: repeat(2, 1fr); }
+    .strip-cinematic { grid-template-columns: 1fr; }
+    .strip-grids { grid-template-columns: 1fr; gap: 0.75rem; }
+    .work-block + .work-block { margin-top: 4rem; }
+    .work-label { font-size: 0.65rem; }
     .pricing, .final-cta { padding: 5rem 1.5rem; }
     .price-card { padding: 3rem 1.5rem; }
     .operator-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -498,7 +538,7 @@
     <li><a href="index.html">Work</a></li>
     <li><a href="subscription.html" class="active">Subscription</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="mailto:chad@urbanlifeinc.com">Contact</a></li>
+    <li><a href="mailto:chad@justbejack.com">Contact</a></li>
   </ul>
 </nav>
 
@@ -590,13 +630,29 @@
       <div class="eyebrow">Selected Output</div>
       <h2 class="h-section">Recent work.</h2>
     </div>
-    <div class="work-strip reveal">
-      <div class="tile" style="background-image: url('images/tonewood/tw_hero.png');"></div>
-      <div class="tile" style="background-image: url('images/tonewood/tw_girard.png');"></div>
-      <div class="tile" style="background-image: url('images/tonewood/tw_ambient.png');"></div>
-      <div class="tile" style="background-image: url('images/tonewood/tw_grid9.png');"></div>
-      <div class="tile" style="background-image: url('images/helixdb/hx_01.png');"></div>
-      <div class="tile" style="background-image: url('images/helixdb/hx_02.png');"></div>
+
+    <div class="work-block reveal">
+      <div class="work-label">
+        <span class="brand">Tonewood Brewing</span>
+        <span class="meta">Philadelphia / Regional Brand</span>
+      </div>
+      <div class="strip-cinematic">
+        <div class="tile" style="background-image: url('images/tonewood/tw_rooftop.png');"></div>
+        <div class="tile" style="background-image: url('images/tonewood/tw_square.png');"></div>
+        <div class="tile" style="background-image: url('images/tonewood/tw_artmuseum.png');"></div>
+      </div>
+    </div>
+
+    <div class="work-block reveal">
+      <div class="work-label">
+        <span class="brand">Helix-DB</span>
+        <span class="meta">Venice, CA / Apparel System</span>
+      </div>
+      <div class="strip-grids">
+        <div class="tile" style="background-image: url('images/helixdb/hx_grid_venice.png');"></div>
+        <div class="tile" style="background-image: url('images/helixdb/hx_grid_lifestyle.png');"></div>
+        <div class="tile" style="background-image: url('images/helixdb/hx_grid_camo.png');"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -611,7 +667,7 @@
       <div class="price">$3,495</div>
       <div class="price-sub">per month</div>
       <p class="terms">Unlimited campaign requests. One active at a time. Pause or cancel anytime.</p>
-      <a href="STRIPE_PAYMENT_LINK_HERE" class="btn-primary">Start the Studio Plan →</a>
+      <a href="https://buy.stripe.com/14A14mbD8fhBdTs6QR5Vu01" class="btn-primary">Start the Studio Plan →</a>
       <div class="guarantee">
         <strong>First-week guarantee.</strong> 75% back if the work isn't right.
       </div>
@@ -692,7 +748,7 @@
   <div class="container-narrow reveal">
     <h2>Ready when you are.</h2>
     <p class="sub">One plan. One price. Pause anytime.</p>
-    <a href="STRIPE_PAYMENT_LINK_HERE" class="btn-primary">Start the Studio Plan →</a>
+    <a href="https://buy.stripe.com/14A14mbD8fhBdTs6QR5Vu01" class="btn-primary">Start the Studio Plan →</a>
   </div>
 </section>
 
